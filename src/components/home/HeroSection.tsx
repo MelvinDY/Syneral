@@ -13,7 +13,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
   const t = useTranslations('home.hero');
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative h-screen flex items-center overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 bg-black" />
 
@@ -70,9 +70,9 @@ export default function HeroSection({ locale }: HeroSectionProps) {
 
       {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-12 lg:gap-20">
-          {/* Left side - Text content */}
-          <div className="relative z-10 lg:max-w-[48%] xl:max-w-[45%]">
+        <div className="flex flex-col">
+          {/* Text content - centered */}
+          <div className="relative z-10 max-w-3xl">
             {/* Checkered flag accent */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -145,78 +145,42 @@ export default function HeroSection({ locale }: HeroSectionProps) {
             </motion.div>
           </div>
 
-          {/* Right side - Racing stats display (Parallelogram) */}
+          {/* Bottom stats bar */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative w-full lg:w-[380px] xl:w-[420px] lg:flex-shrink-0"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-16 lg:mt-24"
           >
-            {/* Stats card - Parallelogram shape */}
-            <div className="relative">
-              {/* Parallelogram background */}
-              <div
-                className="absolute inset-0 bg-gradient-to-br from-background-secondary/90 to-background/90 backdrop-blur-sm border border-white/10 skew-x-[-8deg]"
-              />
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              {[
+                { value: 'API SN', label: locale === 'id' ? 'STANDAR KUALITAS' : 'QUALITY STANDARD' },
+                { value: 'JASO MA2', label: locale === 'id' ? 'SERTIFIKASI' : 'CERTIFICATION' },
+                { value: '100%', label: locale === 'id' ? 'FULL SYNTHETIC' : 'FULL SYNTHETIC' },
+                { value: '+ESTER', label: locale === 'id' ? 'TEKNOLOGI' : 'TECHNOLOGY' },
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+                  className="relative group"
+                >
+                  {/* Parallelogram background with built-in bottom border */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-background-secondary/80 to-background/80 backdrop-blur-sm border border-white/10 border-b-racing-red/50 group-hover:border-racing-red/30 group-hover:border-b-racing-red transition-colors skew-x-[-8deg]" />
 
-              {/* Racing number badge - positioned outside the skew */}
-              <div className="absolute -top-6 left-4 z-20">
-                <div className="w-16 h-16 bg-racing-red skew-x-[-8deg] flex items-center justify-center">
-                  <span className="racing-number text-2xl text-white skew-x-[8deg]">S1</span>
-                </div>
-              </div>
-
-              {/* Corner accent */}
-              <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden skew-x-[-8deg]">
-                <div className="absolute top-0 right-0 w-full h-full bg-racing-red clip-corner" />
-              </div>
-
-              {/* Content (un-skewed) */}
-              <div className="relative z-10 p-6 pt-14">
-                {/* Stats grid */}
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    { value: 'API SN', label: locale === 'id' ? 'STANDAR KUALITAS' : 'QUALITY STANDARD' },
-                    { value: 'JASO MA2', label: locale === 'id' ? 'SERTIFIKASI' : 'CERTIFICATION' },
-                    { value: '100%', label: locale === 'id' ? 'FULL SYNTHETIC' : 'FULL SYNTHETIC' },
-                    { value: '+ESTER', label: locale === 'id' ? 'TEKNOLOGI' : 'TECHNOLOGY' },
-                  ].map((stat, index) => (
-                    <motion.div
-                      key={stat.label}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-                      className="relative text-center p-4"
-                    >
-                      {/* Individual stat parallelogram background */}
-                      <div className="absolute inset-0 bg-black/40 border border-white/5 skew-x-[-8deg]" />
-                      <div className="relative">
-                        <div className="font-racing text-xl sm:text-2xl font-bold text-white mb-1">
-                          {stat.value}
-                        </div>
-                        <div className="font-racing text-[9px] text-foreground-muted tracking-widest">
-                          {stat.label}
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Bottom racing stripe - skewed */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red skew-x-[-8deg]" />
-
-              {/* Side accent lines */}
-              <div className="absolute top-0 bottom-0 -right-2 w-1 bg-racing-red skew-x-[-8deg]" />
-              <div className="absolute top-0 bottom-0 -right-4 w-0.5 bg-racing-red/50 skew-x-[-8deg]" />
+                  {/* Content */}
+                  <div className="relative p-4 md:p-6 text-center">
+                    <div className="font-racing text-2xl md:text-3xl font-bold text-white mb-1">
+                      {stat.value}
+                    </div>
+                    <div className="font-racing text-[9px] md:text-[10px] text-foreground-muted tracking-widest">
+                      {stat.label}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-
-            {/* Floating glow element */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -bottom-8 -right-8 w-32 h-32 bg-racing-red/20 rounded-full blur-2xl"
-            />
           </motion.div>
         </div>
       </div>
@@ -249,11 +213,6 @@ export default function HeroSection({ locale }: HeroSectionProps) {
         </motion.div>
       </motion.div>
 
-      <style jsx>{`
-        .clip-corner {
-          clip-path: polygon(100% 0, 0 0, 100% 100%);
-        }
-      `}</style>
     </section>
   );
 }

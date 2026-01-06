@@ -20,14 +20,31 @@ export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Update background style
+      setIsScrolled(currentScrollY > 20);
+
+      // Hide/show based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past threshold - hide header
+        setIsHidden(true);
+      } else {
+        // Scrolling up - show header
+        setIsHidden(false);
+      }
+
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <header
@@ -35,7 +52,7 @@ export default function Header() {
         isScrolled
           ? 'bg-black/95 backdrop-blur-md border-b border-racing-red/20'
           : 'bg-transparent'
-      }`}
+      } ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}
     >
       {/* Top racing stripe */}
       <div className="h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
