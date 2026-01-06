@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+:root {
+  /* MotoGP-inspired color palette */
+  --racing-red: #e10600;
+  --racing-red-dark: #b80500;
+  --electric-blue: #00a3e0;
+  --electric-blue-dark: #0082b3;
+  --gold: #d4af37;
+  --gold-dark: #b8962e;
+
+  /* Base colors */
+  --background: #0a0a0a;
+  --background-secondary: #111111;
+  --background-tertiary: #1a1a1a;
+  --foreground: #ffffff;
+  --foreground-muted: #a0a0a0;
+
+  /* Gradients */
+  --gradient-racing: linear-gradient(135deg, var(--racing-red) 0%, var(--racing-red-dark) 100%);
+  --gradient-electric: linear-gradient(135deg, var(--electric-blue) 0%, var(--electric-blue-dark) 100%);
+  --gradient-dark: linear-gradient(180deg, var(--background) 0%, var(--background-secondary) 100%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-racing-red: var(--racing-red);
+  --color-racing-red-dark: var(--racing-red-dark);
+  --color-electric-blue: var(--electric-blue);
+  --color-electric-blue-dark: var(--electric-blue-dark);
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-racing);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Speed lines effect */
+.speed-lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.speed-lines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 40px,
+    rgba(225, 6, 0, 0.03) 40px,
+    rgba(225, 6, 0, 0.03) 42px
+  );
+  transform: skewX(-20deg);
+  animation: speedMove 20s linear infinite;
+}
+
+@keyframes speedMove {
+  0% { transform: skewX(-20deg) translateX(0); }
+  100% { transform: skewX(-20deg) translateX(100px); }
+}
+
+/* Racing stripe accent */
+.racing-stripe {
+  position: relative;
+}
+
+.racing-stripe::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-racing);
+}
+
+/* Glow effects */
+.glow-red {
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.3), 0 0 40px rgba(225, 6, 0, 0.1);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(0, 163, 224, 0.3), 0 0 40px rgba(0, 163, 224, 0.1);
+}
+
+/* Button hover effects */
+.btn-racing {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-racing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-racing:hover::before {
+  left: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--racing-red);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--racing-red-dark);
+}
+
+/* Selection color */
+::selection {
+  background: var(--racing-red);
+  color: white;
+}
+
+/* Racing Typography */
+.font-racing {
+  font-family: var(--font-racing), system-ui, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.font-racing-alt {
+  font-family: var(--font-racing-alt), system-ui, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Racing number style */
+.racing-number {
+  font-family: var(--font-racing), system-ui, sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.02em;
+}
+
+/* Checkered flag pattern */
+.checkered-flag {
+  background-image:
+    linear-gradient(45deg, #fff 25%, transparent 25%),
+    linear-gradient(-45deg, #fff 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #fff 75%),
+    linear-gradient(-45deg, transparent 75%, #fff 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Motion blur effect */
+.motion-blur {
+  filter: blur(0);
+  transition: filter 0.3s ease;
+}
+
+.motion-blur:hover {
+  filter: blur(1px);
+  animation: motionBlur 0.3s ease-out;
+}
+
+@keyframes motionBlur {
+  0% { filter: blur(4px); transform: translateX(-10px); }
+  100% { filter: blur(0); transform: translateX(0); }
+}
+
+/* Racing diagonal stripes */
+.racing-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(225, 6, 0, 0.1) 10px,
+    rgba(225, 6, 0, 0.1) 20px
+  );
+}
+
+/* Pit lane style border */
+.pit-lane-border {
+  border-image: repeating-linear-gradient(
+    90deg,
+    #fff 0px,
+    #fff 10px,
+    #e10600 10px,
+    #e10600 20px
+  ) 1;
+}

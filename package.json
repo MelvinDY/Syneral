@@ -1,0 +1,39 @@
+{
+  "name": "syneral-indonesia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PT Syneral Indonesia - Premium Guaranteed Lubricant website",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@sanity/image-url": "^2.0.2",
+    "framer-motion": "^12.24.7",
+    "leaflet": "^1.9.4",
+    "next": "16.1.1",
+    "next-intl": "^4.7.0",
+    "next-sanity": "^12.0.8",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-hook-form": "^7.70.0",
+    "react-leaflet": "^5.0.0",
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/leaflet": "^1.9.21",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "sanity": "^5.1.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

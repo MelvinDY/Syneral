@@ -1,0 +1,140 @@
+{
+  "common": {
+    "home": "Beranda",
+    "about": "Tentang Kami",
+    "products": "Produk",
+    "dealers": "Temukan Dealer",
+    "promotions": "Promosi",
+    "contact": "Kontak",
+    "learnMore": "Pelajari Lebih Lanjut",
+    "viewAll": "Lihat Semua",
+    "findDealer": "Temukan Dealer",
+    "compare": "Bandingkan",
+    "submit": "Kirim",
+    "loading": "Memuat...",
+    "language": "Bahasa"
+  },
+  "home": {
+    "hero": {
+      "title": "Performa Tanpa Kompromi",
+      "subtitle": "Premium Guaranteed Lubricant",
+      "description": "Oli motor premium buatan Indonesia dengan teknologi terdepan untuk performa maksimal mesin Anda.",
+      "cta": "Jelajahi Produk"
+    },
+    "features": {
+      "title": "Mengapa Memilih Syneral?",
+      "quality": {
+        "title": "Kualitas Premium",
+        "description": "Diformulasikan dengan standar API SN dan JASO untuk perlindungan mesin optimal."
+      },
+      "performance": {
+        "title": "Performa Maksimal",
+        "description": "Teknologi Full Synthetic Plus Ester untuk akselerasi responsif dan tenaga ekstra."
+      },
+      "protection": {
+        "title": "Perlindungan Unggul",
+        "description": "Melindungi mesin dari keausan, korosi, dan suhu ekstrem dalam segala kondisi."
+      }
+    },
+    "products": {
+      "title": "Produk Unggulan",
+      "subtitle": "Solusi pelumas untuk setiap kebutuhan motor Anda"
+    },
+    "cta": {
+      "title": "Siap Meningkatkan Performa Motor Anda?",
+      "description": "Temukan dealer Syneral terdekat dan rasakan perbedaannya.",
+      "button": "Cari Dealer Terdekat"
+    }
+  },
+  "about": {
+    "title": "Tentang Syneral Indonesia",
+    "subtitle": "Komitmen kami untuk kualitas dan performa",
+    "story": {
+      "title": "Cerita Kami",
+      "description": "PT Syneral Indonesia adalah produsen oli motor premium Indonesia yang berkomitmen menghadirkan produk berkualitas tinggi dengan harga terjangkau."
+    },
+    "mission": {
+      "title": "Misi",
+      "description": "Menyediakan pelumas berkualitas premium untuk mendukung performa optimal kendaraan bermotor Indonesia."
+    },
+    "vision": {
+      "title": "Visi",
+      "description": "Menjadi merek pelumas motor terkemuka di Indonesia yang diakui atas kualitas dan inovasi."
+    },
+    "certifications": {
+      "title": "Sertifikasi",
+      "apiSn": "API SN - Standar kualitas oli tertinggi",
+      "jasoMa2": "JASO MA2 - Untuk motor dengan kopling basah",
+      "jasoMb": "JASO MB - Untuk motor matic"
+    }
+  },
+  "products": {
+    "title": "Produk Kami",
+    "subtitle": "Pilihan oli motor premium untuk setiap kebutuhan",
+    "categories": {
+      "all": "Semua",
+      "4t": "4T Engine Oil",
+      "matic": "MATIC Oil",
+      "specialty": "Specialty"
+    },
+    "specs": {
+      "viscosity": "Kekentalan",
+      "api": "Standar API",
+      "jaso": "Standar JASO",
+      "volume": "Volume"
+    },
+    "comparison": {
+      "title": "Bandingkan Produk",
+      "selectProducts": "Pilih produk untuk dibandingkan",
+      "clearAll": "Hapus Semua"
+    },
+    "detail": {
+      "features": "Fitur Unggulan",
+      "specifications": "Spesifikasi",
+      "recommended": "Direkomendasikan Untuk"
+    }
+  },
+  "dealers": {
+    "title": "Temukan Dealer",
+    "subtitle": "Lokasi dealer resmi Syneral di seluruh Indonesia",
+    "search": "Cari berdasarkan kota atau area...",
+    "noResults": "Tidak ada dealer ditemukan",
+    "directions": "Petunjuk Arah",
+    "call": "Hubungi",
+    "hours": "Jam Operasional"
+  },
+  "promotions": {
+    "title": "Promosi",
+    "subtitle": "Penawaran spesial dan program menarik",
+    "active": "Promo Aktif",
+    "expired": "Sudah Berakhir",
+    "validUntil": "Berlaku hingga",
+    "termsConditions": "Syarat & Ketentuan"
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "subtitle": "Kami siap membantu Anda",
+    "form": {
+      "name": "Nama Lengkap",
+      "email": "Email",
+      "phone": "Nomor Telepon",
+      "subject": "Subjek",
+      "message": "Pesan",
+      "submit": "Kirim Pesan",
+      "success": "Pesan berhasil dikirim!",
+      "error": "Gagal mengirim pesan. Silakan coba lagi."
+    },
+    "info": {
+      "address": "Alamat",
+      "phone": "Telepon",
+      "email": "Email",
+      "hours": "Jam Operasional"
+    }
+  },
+  "footer": {
+    "tagline": "Premium Guaranteed Lubricant",
+    "quickLinks": "Tautan Cepat",
+    "followUs": "Ikuti Kami",
+    "copyright": "© 2024 PT Syneral Indonesia. Hak cipta dilindungi."
+  }
+}

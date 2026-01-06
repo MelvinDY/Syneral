@@ -1,0 +1,140 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "dealers": "Find Dealer",
+    "promotions": "Promotions",
+    "contact": "Contact",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "findDealer": "Find Dealer",
+    "compare": "Compare",
+    "submit": "Submit",
+    "loading": "Loading...",
+    "language": "Language"
+  },
+  "home": {
+    "hero": {
+      "title": "Uncompromised Performance",
+      "subtitle": "Premium Guaranteed Lubricant",
+      "description": "Indonesian-made premium motor oil with cutting-edge technology for maximum engine performance.",
+      "cta": "Explore Products"
+    },
+    "features": {
+      "title": "Why Choose Syneral?",
+      "quality": {
+        "title": "Premium Quality",
+        "description": "Formulated with API SN and JASO standards for optimal engine protection."
+      },
+      "performance": {
+        "title": "Maximum Performance",
+        "description": "Full Synthetic Plus Ester technology for responsive acceleration and extra power."
+      },
+      "protection": {
+        "title": "Superior Protection",
+        "description": "Protects engine from wear, corrosion, and extreme temperatures in all conditions."
+      }
+    },
+    "products": {
+      "title": "Featured Products",
+      "subtitle": "Lubricant solutions for every motorcycle need"
+    },
+    "cta": {
+      "title": "Ready to Boost Your Motorcycle Performance?",
+      "description": "Find the nearest Syneral dealer and feel the difference.",
+      "button": "Find Nearest Dealer"
+    }
+  },
+  "about": {
+    "title": "About Syneral Indonesia",
+    "subtitle": "Our commitment to quality and performance",
+    "story": {
+      "title": "Our Story",
+      "description": "PT Syneral Indonesia is an Indonesian premium motor oil manufacturer committed to delivering high-quality products at affordable prices."
+    },
+    "mission": {
+      "title": "Mission",
+      "description": "To provide premium quality lubricants to support optimal performance of Indonesian motor vehicles."
+    },
+    "vision": {
+      "title": "Vision",
+      "description": "To become the leading motor lubricant brand in Indonesia, recognized for quality and innovation."
+    },
+    "certifications": {
+      "title": "Certifications",
+      "apiSn": "API SN - Highest oil quality standard",
+      "jasoMa2": "JASO MA2 - For motorcycles with wet clutch",
+      "jasoMb": "JASO MB - For scooters"
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Premium motor oil choices for every need",
+    "categories": {
+      "all": "All",
+      "4t": "4T Engine Oil",
+      "matic": "MATIC Oil",
+      "specialty": "Specialty"
+    },
+    "specs": {
+      "viscosity": "Viscosity",
+      "api": "API Standard",
+      "jaso": "JASO Standard",
+      "volume": "Volume"
+    },
+    "comparison": {
+      "title": "Compare Products",
+      "selectProducts": "Select products to compare",
+      "clearAll": "Clear All"
+    },
+    "detail": {
+      "features": "Key Features",
+      "specifications": "Specifications",
+      "recommended": "Recommended For"
+    }
+  },
+  "dealers": {
+    "title": "Find a Dealer",
+    "subtitle": "Official Syneral dealer locations across Indonesia",
+    "search": "Search by city or area...",
+    "noResults": "No dealers found",
+    "directions": "Get Directions",
+    "call": "Call",
+    "hours": "Operating Hours"
+  },
+  "promotions": {
+    "title": "Promotions",
+    "subtitle": "Special offers and exciting programs",
+    "active": "Active Promos",
+    "expired": "Expired",
+    "validUntil": "Valid until",
+    "termsConditions": "Terms & Conditions"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're here to help",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Operating Hours"
+    }
+  },
+  "footer": {
+    "tagline": "Premium Guaranteed Lubricant",
+    "quickLinks": "Quick Links",
+    "followUs": "Follow Us",
+    "copyright": "© 2024 PT Syneral Indonesia. All rights reserved."
+  }
+}
