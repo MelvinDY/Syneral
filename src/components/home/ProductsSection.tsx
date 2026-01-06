@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import SectionHeading from '@/components/ui/SectionHeading';
 import Button from '@/components/ui/Button';
 import type { Locale } from '@/lib/types';
 
@@ -14,45 +13,39 @@ interface ProductsSectionProps {
 const demoProducts = [
   {
     id: '1',
-    name: { id: 'Syneral 4T Full Synthetic Plus Ester', en: 'Syneral 4T Full Synthetic Plus Ester' },
-    category: '4t',
+    name: { id: 'Syneral 4T Full Synthetic', en: 'Syneral 4T Full Synthetic' },
+    tagline: { id: 'Plus Ester Technology', en: 'Plus Ester Technology' },
+    category: '4T',
     viscosity: '10W-40',
     apiStandard: 'API SN',
     jasoStandard: 'JASO MA2',
-    volume: 800,
-    description: {
-      id: 'Oli motor full synthetic dengan teknologi Ester untuk performa maksimal',
-      en: 'Full synthetic motor oil with Ester technology for maximum performance'
-    },
+    volume: '800ml',
     color: '#e10600',
+    number: '01',
   },
   {
     id: '2',
-    name: { id: 'Syneral MATIC Full Synthetic Plus Ester', en: 'Syneral MATIC Full Synthetic Plus Ester' },
-    category: 'matic',
+    name: { id: 'Syneral MATIC Full Synthetic', en: 'Syneral MATIC Full Synthetic' },
+    tagline: { id: 'CVT Protection Formula', en: 'CVT Protection Formula' },
+    category: 'MATIC',
     viscosity: '5W-40',
     apiStandard: 'API SN',
     jasoStandard: 'JASO MB',
-    volume: 800,
-    description: {
-      id: 'Oli motor matic full synthetic untuk perlindungan CVT optimal',
-      en: 'Full synthetic scooter oil for optimal CVT protection'
-    },
+    volume: '800ml',
     color: '#00a3e0',
+    number: '02',
   },
   {
     id: '3',
     name: { id: 'Syneral Racing Ester', en: 'Syneral Racing Ester' },
-    category: 'specialty',
+    tagline: { id: '100% Ester Base', en: '100% Ester Base' },
+    category: 'RACING',
     viscosity: '10W-50',
     apiStandard: 'API SN',
     jasoStandard: 'JASO MA2',
-    volume: 1000,
-    description: {
-      id: 'Oli racing dengan 100% Ester untuk kondisi ekstrem',
-      en: 'Racing oil with 100% Ester for extreme conditions'
-    },
+    volume: '1000ml',
     color: '#d4af37',
+    number: '03',
   },
 ];
 
@@ -61,104 +54,189 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
   const tCommon = useTranslations('common');
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading title={t('title')} subtitle={t('subtitle')} />
+    <section className="h-screen py-24 bg-background-secondary relative overflow-hidden flex flex-col justify-center">
+      {/* Background elements */}
+      <div className="absolute inset-0 opacity-20">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+          }}
+        />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {/* Large background number */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.02 }}
+        viewport={{ once: true }}
+        className="absolute right-0 top-1/2 -translate-y-1/2 racing-number text-[30vw] leading-none text-white pointer-events-none select-none"
+      >
+        S1
+      </motion.div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+        >
+          <div>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="flex">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white'}`}
+                  />
+                ))}
+              </div>
+              <span className="font-racing text-racing-red text-sm tracking-[0.2em]">
+                {locale === 'id' ? 'PRODUK KAMI' : 'OUR PRODUCTS'}
+              </span>
+            </div>
+            <h2 className="font-racing text-4xl md:text-5xl lg:text-6xl font-black text-white">
+              {t('title')}
+            </h2>
+            <p className="font-racing-alt text-foreground-muted mt-4 max-w-xl">
+              {t('subtitle')}
+            </p>
+          </div>
+
+          <Button href="/products" variant="outline" className="font-racing shrink-0">
+            {tCommon('viewAll')}
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Button>
+        </motion.div>
+
+        {/* Products grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {demoProducts.map((product, index) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="group"
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              className="group relative"
             >
-              <div className="bg-background-secondary rounded-2xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-300">
-                {/* Product image placeholder */}
-                <div className="relative aspect-square bg-gradient-to-br from-background-tertiary to-background p-8 flex items-center justify-center">
-                  {/* Oil bottle illustration */}
-                  <div className="relative">
-                    <div
-                      className="w-32 h-48 rounded-lg"
-                      style={{
-                        background: `linear-gradient(135deg, ${product.color}20 0%, ${product.color}40 100%)`,
-                        border: `2px solid ${product.color}60`,
-                      }}
-                    >
-                      <div
-                        className="absolute top-2 left-1/2 -translate-x-1/2 w-8 h-4 rounded-t-lg"
-                        style={{ backgroundColor: product.color }}
-                      />
-                      <div className="absolute inset-4 flex flex-col items-center justify-center text-center">
-                        <span className="text-2xl font-bold text-white">S</span>
-                        <span className="text-xs text-white/80 mt-1">{product.viscosity}</span>
-                      </div>
-                    </div>
-                    {/* Glow effect */}
-                    <div
-                      className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
-                      style={{ backgroundColor: `${product.color}30` }}
-                    />
-                  </div>
+              {/* Product card */}
+              <div className="relative h-full">
+                {/* Parallelogram background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-background/95 to-background-secondary/95 border border-white/10 skew-x-[-4deg] group-hover:border-white/20 transition-all duration-300" />
 
-                  {/* Category badge */}
-                  <div className="absolute top-4 left-4">
-                    <span
-                      className="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full text-white"
-                      style={{ backgroundColor: `${product.color}cc` }}
-                    >
-                      {product.category}
-                    </span>
-                  </div>
-                </div>
+                {/* Top color bar */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-1 skew-x-[-4deg]"
+                  style={{ backgroundColor: product.color }}
+                />
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-racing-red transition-colors">
-                    {product.name[locale]}
-                  </h3>
-                  <p className="text-foreground-muted text-sm mb-4 line-clamp-2">
-                    {product.description[locale]}
-                  </p>
+                <div className="relative p-6 h-full flex flex-col">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-6">
+                    {/* Category badge */}
+                    <div
+                      className="px-4 py-1 skew-x-[-8deg] font-racing text-xs tracking-wider text-white"
+                      style={{ backgroundColor: product.color }}
+                    >
+                      <span className="skew-x-[8deg] block">{product.category}</span>
+                    </div>
 
-                  {/* Specs */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="px-2 py-1 text-xs bg-white/5 rounded text-foreground-muted">
-                      {product.apiStandard}
-                    </span>
-                    <span className="px-2 py-1 text-xs bg-white/5 rounded text-foreground-muted">
-                      {product.jasoStandard}
-                    </span>
-                    <span className="px-2 py-1 text-xs bg-white/5 rounded text-foreground-muted">
-                      {product.volume}ml
+                    {/* Product number */}
+                    <span className="racing-number text-4xl" style={{ color: `${product.color}40` }}>
+                      {product.number}
                     </span>
                   </div>
 
-                  {/* Link */}
-                  <div className="flex items-center text-sm font-medium text-racing-red group-hover:translate-x-2 transition-transform">
-                    {tCommon('learnMore')}
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                  {/* Product visual */}
+                  <div className="relative flex-1 flex items-center justify-center py-8">
+                    {/* Oil bottle stylized */}
+                    <div className="relative">
+                      <div
+                        className="w-24 h-36 skew-x-[-8deg] relative"
+                        style={{
+                          background: `linear-gradient(135deg, ${product.color}30 0%, ${product.color}10 100%)`,
+                          border: `2px solid ${product.color}50`,
+                        }}
+                      >
+                        {/* Cap */}
+                        <div
+                          className="absolute -top-3 left-1/2 -translate-x-1/2 w-10 h-5"
+                          style={{ backgroundColor: product.color }}
+                        />
+                        {/* Label */}
+                        <div className="absolute inset-3 flex flex-col items-center justify-center skew-x-[8deg]">
+                          <span className="font-racing text-3xl font-black text-white">S</span>
+                          <span className="font-racing text-xs text-white/80 mt-1">{product.viscosity}</span>
+                        </div>
+                      </div>
+
+                      {/* Glow */}
+                      <div
+                        className="absolute inset-0 blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"
+                        style={{ backgroundColor: product.color }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Product info */}
+                  <div className="mt-auto">
+                    <h3 className="font-racing text-lg text-white mb-1 tracking-wide group-hover:text-racing-red transition-colors">
+                      {product.name[locale]}
+                    </h3>
+                    <p className="font-racing-alt text-sm text-foreground-muted mb-4">
+                      {product.tagline[locale]}
+                    </p>
+
+                    {/* Specs row */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {[product.apiStandard, product.jasoStandard, product.volume].map((spec) => (
+                        <div key={spec} className="relative">
+                          <div className="absolute inset-0 bg-white/5 skew-x-[-8deg]" />
+                          <span className="relative px-3 py-1 font-racing text-[10px] text-foreground-muted tracking-wider">
+                            {spec}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CTA */}
+                    <div
+                      className="flex items-center gap-2 font-racing text-sm tracking-wider group-hover:translate-x-2 transition-transform"
+                      style={{ color: product.color }}
+                    >
+                      {tCommon('learnMore')}
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
+
+                {/* Corner accent */}
+                <div
+                  className="absolute bottom-0 right-0 w-12 h-12 skew-x-[-4deg] opacity-20 group-hover:opacity-40 transition-opacity"
+                  style={{
+                    background: `linear-gradient(135deg, transparent 50%, ${product.color} 50%)`,
+                  }}
+                />
               </div>
             </motion.div>
           ))}
         </div>
-
-        <div className="text-center">
-          <Button href="/products" variant="outline" size="lg">
-            {tCommon('viewAll')}
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Button>
-        </div>
       </div>
+
+      {/* Bottom racing stripe */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
     </section>
   );
 }

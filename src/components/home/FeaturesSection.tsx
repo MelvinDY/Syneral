@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import SectionHeading from '@/components/ui/SectionHeading';
 import type { Locale } from '@/lib/types';
 
 interface FeaturesSectionProps {
@@ -12,30 +11,33 @@ interface FeaturesSectionProps {
 const features = [
   {
     key: 'quality',
+    number: '01',
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
       </svg>
     ),
-    color: 'racing-red',
+    color: '#e10600',
   },
   {
     key: 'performance',
+    number: '02',
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    color: 'electric-blue',
+    color: '#00a3e0',
   },
   {
     key: 'protection',
+    number: '03',
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
-    color: 'gold',
+    color: '#d4af37',
   },
 ];
 
@@ -43,62 +45,111 @@ export default function FeaturesSection({ locale }: FeaturesSectionProps) {
   const t = useTranslations('home.features');
 
   return (
-    <section className="py-24 bg-background-secondary relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-racing-red/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-racing-red/30 to-transparent" />
+    <section className="h-screen py-24 bg-black relative overflow-hidden flex flex-col justify-center">
+      {/* Racing stripe top */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading title={t('title')} />
+      {/* Background elements */}
+      <div className="absolute inset-0 racing-stripes opacity-30" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-racing-red/5 to-transparent" />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Large background text */}
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 racing-number text-[20vw] leading-none text-white/[0.02] pointer-events-none select-none">
+        WHY
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <div className="flex items-center gap-4 mb-4">
+            <div className="flex">
+              {[...Array(4)].map((_, i) => (
+                <div
+                  key={i}
+                  className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white'}`}
+                />
+              ))}
+            </div>
+            <span className="font-racing text-racing-red text-sm tracking-[0.2em]">
+              {locale === 'id' ? 'KEUNGGULAN' : 'ADVANTAGES'}
+            </span>
+          </div>
+          <h2 className="font-racing text-4xl md:text-5xl lg:text-6xl font-black text-white">
+            {t('title')}
+          </h2>
+        </motion.div>
+
+        {/* Features grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.key}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
               className="group relative"
             >
-              <div className="bg-background rounded-2xl p-8 border border-white/5 hover:border-white/10 transition-all duration-300 h-full">
-                {/* Icon */}
+              {/* Card with parallelogram shape */}
+              <div className="relative h-full">
+                {/* Parallelogram background */}
                 <div
-                  className={`w-16 h-16 rounded-xl bg-${feature.color}/10 flex items-center justify-center mb-6 text-${feature.color} group-hover:scale-110 transition-transform duration-300`}
-                  style={{
-                    backgroundColor: feature.color === 'racing-red' ? 'rgba(225, 6, 0, 0.1)' :
-                                    feature.color === 'electric-blue' ? 'rgba(0, 163, 224, 0.1)' :
-                                    'rgba(212, 175, 55, 0.1)',
-                    color: feature.color === 'racing-red' ? '#e10600' :
-                           feature.color === 'electric-blue' ? '#00a3e0' :
-                           '#d4af37',
-                  }}
-                >
-                  {feature.icon}
-                </div>
+                  className="absolute inset-0 bg-gradient-to-br from-background-secondary/90 to-background/90 border border-white/10 skew-x-[-4deg] group-hover:border-opacity-30 transition-all duration-300"
+                  style={{ borderColor: `${feature.color}30` }}
+                />
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {t(`${feature.key}.title`)}
-                </h3>
-                <p className="text-foreground-muted leading-relaxed">
-                  {t(`${feature.key}.description`)}
-                </p>
+                <div className="relative p-8 h-full">
+                  {/* Racing number */}
+                  <div className="absolute -top-4 -right-2 z-10">
+                    <div
+                      className="w-14 h-14 flex items-center justify-center skew-x-[-8deg]"
+                      style={{ backgroundColor: feature.color }}
+                    >
+                      <span className="racing-number text-xl text-white skew-x-[8deg]">
+                        {feature.number}
+                      </span>
+                    </div>
+                  </div>
 
-                {/* Hover accent line */}
-                <div
-                  className="absolute bottom-0 left-8 right-8 h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                  style={{
-                    backgroundColor: feature.color === 'racing-red' ? '#e10600' :
-                                    feature.color === 'electric-blue' ? '#00a3e0' :
-                                    '#d4af37',
-                  }}
-                />
+                  {/* Icon */}
+                  <div
+                    className="w-16 h-16 flex items-center justify-center mb-6 skew-x-[-8deg] group-hover:scale-110 transition-transform duration-300"
+                    style={{
+                      backgroundColor: `${feature.color}20`,
+                      color: feature.color,
+                    }}
+                  >
+                    <div className="skew-x-[8deg]">{feature.icon}</div>
+                  </div>
+
+                  {/* Text */}
+                  <h3 className="font-racing text-xl text-white mb-3 tracking-wide">
+                    {t(`${feature.key}.title`)}
+                  </h3>
+                  <p className="font-racing-alt text-foreground-muted leading-relaxed text-sm">
+                    {t(`${feature.key}.description`)}
+                  </p>
+
+                  {/* Bottom accent */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-1 skew-x-[-4deg] opacity-50 group-hover:opacity-100 transition-opacity"
+                    style={{ backgroundColor: feature.color }}
+                  />
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Racing stripe bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
     </section>
   );
 }
