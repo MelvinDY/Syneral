@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import ProductComparison from '@/components/features/ProductComparison';
 import type { Locale } from '@/lib/types';
@@ -17,7 +18,7 @@ const demoProducts = [
   {
     id: '1',
     name: { id: 'SyneRal Full Synthetic Plus Ester 4T', en: 'SyneRal Full Synthetic Plus Ester 4T' },
-    slug: { current: 'syneral-full-synthetic-plus-ester-4t' },
+    slug: 'syneral-full-synthetic-plus-ester-4t',
     category: 'motorcycle' as const,
     viscosity: '10W-40',
     apiStandard: 'API SN',
@@ -28,7 +29,7 @@ const demoProducts = [
   {
     id: '2',
     name: { id: 'SyneRal Synthetic 4T', en: 'SyneRal Synthetic 4T' },
-    slug: { current: 'syneral-synthetic-4t' },
+    slug: 'syneral-synthetic-4t',
     category: 'motorcycle' as const,
     viscosity: '10W-40',
     apiStandard: 'API SN',
@@ -39,7 +40,7 @@ const demoProducts = [
   {
     id: '3',
     name: { id: 'SyneRal Full Synthetic Plus Ester MATIC', en: 'SyneRal Full Synthetic Plus Ester MATIC' },
-    slug: { current: 'syneral-full-synthetic-plus-ester-matic' },
+    slug: 'syneral-full-synthetic-plus-ester-matic',
     category: 'motorcycle' as const,
     viscosity: '5W-40',
     apiStandard: 'API SN',
@@ -50,7 +51,7 @@ const demoProducts = [
   {
     id: '4',
     name: { id: 'SyneRal Synthetic MATIC', en: 'SyneRal Synthetic MATIC' },
-    slug: { current: 'syneral-synthetic-matic' },
+    slug: 'syneral-synthetic-matic',
     category: 'motorcycle' as const,
     viscosity: '10W-30',
     apiStandard: 'API SN',
@@ -61,7 +62,7 @@ const demoProducts = [
   {
     id: '5',
     name: { id: 'SyneRal Grease Calcium', en: 'SyneRal Grease Calcium' },
-    slug: { current: 'syneral-grease-calcium' },
+    slug: 'syneral-grease-calcium',
     category: 'grease' as const,
     viscosity: 'NLGI 3',
     apiStandard: '-',
@@ -72,7 +73,7 @@ const demoProducts = [
   {
     id: '6',
     name: { id: 'SyneRal Grease Lithium EP', en: 'SyneRal Grease Lithium EP' },
-    slug: { current: 'syneral-grease-lithium-ep' },
+    slug: 'syneral-grease-lithium-ep',
     category: 'grease' as const,
     viscosity: 'NLGI 2',
     apiStandard: '-',
@@ -83,7 +84,7 @@ const demoProducts = [
   {
     id: '7',
     name: { id: 'SyneRal Diesel Engine Oil', en: 'SyneRal Diesel Engine Oil' },
-    slug: { current: 'syneral-diesel-engine-oil' },
+    slug: 'syneral-diesel-engine-oil',
     category: 'commercial' as const,
     viscosity: '15W-40',
     apiStandard: 'API CI-4',
@@ -94,7 +95,7 @@ const demoProducts = [
   {
     id: '8',
     name: { id: 'SyneRal Hydraulic Oil', en: 'SyneRal Hydraulic Oil' },
-    slug: { current: 'syneral-hydraulic-oil' },
+    slug: 'syneral-hydraulic-oil',
     category: 'industrial' as const,
     viscosity: 'ISO VG 46',
     apiStandard: '-',
@@ -188,63 +189,69 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   className="group"
                 >
-                  <div className="bg-background-secondary rounded-xl border border-white/5 hover:border-racing-green/50 transition-all duration-300 overflow-hidden h-full flex flex-col">
-                    {/* Product Image Area */}
-                    <div className="relative bg-gradient-to-b from-gray-100 to-gray-200 p-4 flex items-center justify-center min-h-[220px]">
-                      {/* Product Image */}
-                      <div className="relative w-32 h-44 group-hover:scale-105 transition-transform duration-300">
-                        <Image
-                          src={product.image}
-                          alt={product.name[locale]}
-                          fill
-                          className="object-contain"
-                          sizes="128px"
-                        />
-                      </div>
+                  <div className="bg-background-secondary rounded-xl border border-white/5 hover:border-racing-green/50 transition-all duration-300 overflow-hidden h-full flex flex-col relative">
+                    {/* Compare checkbox - positioned absolute so it doesn't interfere with link */}
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        toggleComparison(product.id);
+                      }}
+                      className={`absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all ${
+                        comparisonProducts.includes(product.id)
+                          ? 'bg-racing-green text-white'
+                          : 'bg-black/20 text-white hover:bg-black/40'
+                      }`}
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </button>
 
-                      {/* Compare checkbox */}
-                      <button
-                        onClick={() => toggleComparison(product.id)}
-                        className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-                          comparisonProducts.includes(product.id)
-                            ? 'bg-racing-green text-white'
-                            : 'bg-black/20 text-white hover:bg-black/40'
-                        }`}
-                      >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </button>
-                    </div>
-
-                    {/* Product Info */}
-                    <div className="p-5 flex-1 flex flex-col">
-                      {/* Category badge */}
-                      <span className="inline-block w-fit px-2 py-1 bg-racing-green/20 text-racing-green text-xs font-racing rounded mb-3">
-                        {t(`categories.${product.category}`)}
-                      </span>
-
-                      {/* Product name */}
-                      <h3 className="font-racing text-white text-base mb-3 group-hover:text-racing-green transition-colors line-clamp-2">
-                        {product.name[locale]}
-                      </h3>
-
-                      {/* Specs */}
-                      <div className="mt-auto space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-foreground-muted">{t('specs.viscosity')}</span>
-                          <span className="text-white font-medium">{product.viscosity}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-foreground-muted">{t('specs.api')}</span>
-                          <span className="text-white font-medium">{product.apiStandard}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-foreground-muted">{t('specs.volume')}</span>
-                          <span className="text-white font-medium">{product.volume}ml</span>
+                    <Link href={`/${locale}/products/${product.slug}`} className="flex flex-col h-full">
+                      {/* Product Image Area */}
+                      <div className="relative bg-gradient-to-b from-gray-100 to-gray-200 p-4 flex items-center justify-center min-h-[220px]">
+                        {/* Product Image */}
+                        <div className="relative w-32 h-44 group-hover:scale-105 transition-transform duration-300">
+                          <Image
+                            src={product.image}
+                            alt={product.name[locale]}
+                            fill
+                            className="object-contain"
+                            sizes="128px"
+                          />
                         </div>
                       </div>
-                    </div>
+
+                      {/* Product Info */}
+                      <div className="p-5 flex-1 flex flex-col">
+                        {/* Category badge */}
+                        <span className="inline-block w-fit px-2 py-1 bg-racing-green/20 text-racing-green text-xs font-racing rounded mb-3">
+                          {t(`categories.${product.category}`)}
+                        </span>
+
+                        {/* Product name */}
+                        <h3 className="font-racing text-white text-base mb-3 group-hover:text-racing-green transition-colors line-clamp-2">
+                          {product.name[locale]}
+                        </h3>
+
+                        {/* Specs */}
+                        <div className="mt-auto space-y-2 text-sm">
+                          <div className="flex justify-between">
+                            <span className="text-foreground-muted">{t('specs.viscosity')}</span>
+                            <span className="text-white font-medium">{product.viscosity}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-foreground-muted">{t('specs.api')}</span>
+                            <span className="text-white font-medium">{product.apiStandard}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-foreground-muted">{t('specs.volume')}</span>
+                            <span className="text-white font-medium">{product.volume}ml</span>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                 </motion.div>
               ))}
