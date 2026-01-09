@@ -62,7 +62,7 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
   const tCommon = useTranslations('common');
 
   return (
-    <section className="h-screen py-24 bg-background-secondary relative overflow-hidden flex flex-col justify-center">
+    <section className="py-16 sm:py-24 bg-background-secondary relative overflow-hidden flex flex-col justify-center">
       {/* Background elements */}
       <div className="absolute inset-0 opacity-20">
         <div
@@ -82,7 +82,7 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.02 }}
         viewport={{ once: true }}
-        className="absolute right-0 top-1/2 -translate-y-1/2 racing-number text-[30vw] leading-none text-white pointer-events-none select-none"
+        className="absolute right-0 top-1/2 -translate-y-1/2 racing-number text-[30vw] leading-none text-white pointer-events-none select-none hidden sm:block"
       >
         S1
       </motion.div>
@@ -93,7 +93,7 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6"
+          className="mb-8 sm:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6"
         >
           <div>
             <div className="flex items-center gap-4 mb-4">
@@ -101,18 +101,18 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
                 {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
-                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
+                    className={`w-2 h-2 sm:w-3 sm:h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
                   />
                 ))}
               </div>
-              <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
+              <span className="font-racing text-racing-green text-xs sm:text-sm tracking-[0.2em]">
                 {locale === 'id' ? 'PRODUK KAMI' : 'OUR PRODUCTS'}
               </span>
             </div>
-            <h2 className="font-racing text-4xl md:text-5xl lg:text-6xl font-black text-white">
+            <h2 className="font-racing text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white">
               {t('title')}
             </h2>
-            <p className="font-racing-alt text-foreground-muted mt-4 max-w-xl">
+            <p className="font-racing-alt text-sm sm:text-base text-foreground-muted mt-2 sm:mt-4 max-w-xl">
               {t('subtitle')}
             </p>
           </div>
@@ -126,7 +126,7 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
         </motion.div>
 
         {/* Products grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {featuredProducts.map((product, index) => (
             <motion.div
               key={product.id}
@@ -160,7 +160,7 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
                   </div>
 
                   {/* Content - not skewed */}
-                  <div className="relative p-6 h-full flex flex-col">
+                  <div className="relative p-4 sm:p-6 h-full flex flex-col">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       {/* Category badge */}
@@ -178,8 +178,8 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
                     </div>
 
                     {/* Product image */}
-                    <div className="relative flex items-center justify-center py-8">
-                      <div className="relative w-36 h-52 group-hover:scale-105 transition-transform duration-300">
+                    <div className="relative flex items-center justify-center py-4 sm:py-8">
+                      <div className="relative w-28 h-40 sm:w-36 sm:h-52 group-hover:scale-105 transition-transform duration-300">
                         <Image
                           src={product.image}
                           alt={product.name[locale]}

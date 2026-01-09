@@ -45,7 +45,7 @@ export default function FeaturesSection({ locale }: FeaturesSectionProps) {
   const t = useTranslations('home.features');
 
   return (
-    <section className="h-screen py-24 bg-black relative overflow-hidden flex flex-col justify-center">
+    <section className="py-16 sm:py-24 lg:h-screen bg-black relative overflow-hidden flex flex-col justify-center">
       {/* Racing stripe top */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
@@ -54,7 +54,7 @@ export default function FeaturesSection({ locale }: FeaturesSectionProps) {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-racing-green/5 to-transparent" />
 
       {/* Large background text */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 racing-number text-[20vw] leading-none text-white/[0.02] pointer-events-none select-none">
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 racing-number text-[20vw] leading-none text-white/[0.02] pointer-events-none select-none hidden sm:block">
         WHY
       </div>
 
@@ -64,28 +64,28 @@ export default function FeaturesSection({ locale }: FeaturesSectionProps) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-8 sm:mb-16"
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="flex">
               {[...Array(4)].map((_, i) => (
                 <div
                   key={i}
-                  className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
+                  className={`w-2 h-2 sm:w-3 sm:h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
                 />
               ))}
             </div>
-            <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
+            <span className="font-racing text-racing-green text-xs sm:text-sm tracking-[0.2em]">
               {locale === 'id' ? 'KEUNGGULAN' : 'ADVANTAGES'}
             </span>
           </div>
-          <h2 className="font-racing text-4xl md:text-5xl lg:text-6xl font-black text-white">
+          <h2 className="font-racing text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white">
             {t('title')}
           </h2>
         </motion.div>
 
         {/* Features grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.key}
@@ -104,7 +104,7 @@ export default function FeaturesSection({ locale }: FeaturesSectionProps) {
                 />
 
                 {/* Content */}
-                <div className="relative p-8 h-full">
+                <div className="relative p-5 sm:p-8 h-full">
                   {/* Racing number */}
                   <div className="absolute -top-4 -right-2 z-10">
                     <div
