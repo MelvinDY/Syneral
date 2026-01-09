@@ -42,47 +42,54 @@ const certifications = [
 ];
 
 const stats = [
-  { value: '2015', labelId: 'TAHUN BERDIRI', labelEn: 'ESTABLISHED' },
-  { value: '100+', labelId: 'DEALER RESMI', labelEn: 'OFFICIAL DEALERS' },
-  { value: '34', labelId: 'PROVINSI', labelEn: 'PROVINCES' },
-  { value: '1000+', labelId: 'PELANGGAN SETIA', labelEn: 'LOYAL CUSTOMERS' },
+  { value: '2006', labelId: 'TAHUN BERDIRI', labelEn: 'ESTABLISHED' },
+  { value: '3000', labelId: 'M² PABRIK', labelEn: 'M² FACTORY' },
+  { value: '10M+', labelId: 'LITER/TAHUN', labelEn: 'LITERS/YEAR' },
+  { value: '18+', labelId: 'TAHUN PENGALAMAN', labelEn: 'YEARS EXPERIENCE' },
+];
+
+const history = [
+  { year: '2006', descId: 'PT SyneRal Indonesia didirikan sebagai perusahaan yang memasarkan pelumas industri dengan merek SyneRal.', descEn: 'PT SyneRal Indonesia was established as a company marketing industrial lubricants under the SyneRal brand.' },
+  { year: '2009', descId: 'Memasarkan pelumas kemasan botol untuk sepeda motor dan mobil, serta produk kimia perawatan mesin.', descEn: 'Started marketing bottled lubricants for motorcycles and cars, plus engine care chemical products.' },
+  { year: '2010', descId: 'Mendirikan gedung kantor dan pabrik dengan luas 3000 m².', descEn: 'Built office building and factory with 3000 m² area.' },
+  { year: '2012', descId: 'Memproduksi pelumas dengan kapasitas ± 10.000.000 Liter/tahun.', descEn: 'Producing lubricants with capacity of ± 10,000,000 Liters/year.' },
 ];
 
 const values = [
   {
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
       </svg>
     ),
-    titleId: 'KUALITAS PREMIUM',
-    titleEn: 'PREMIUM QUALITY',
-    descId: 'Standar internasional dalam setiap tetes oli',
-    descEn: 'International standards in every drop of oil',
+    titleId: 'FEEDBACK KONSUMEN',
+    titleEn: 'CONSUMER FEEDBACK',
+    descId: 'Mendengarkan dan merespons kebutuhan pelanggan',
+    descEn: 'Listening and responding to customer needs',
     number: '01',
   },
   {
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     ),
-    titleId: 'TEKNOLOGI ESTER',
-    titleEn: 'ESTER TECHNOLOGY',
-    descId: 'Formula canggih untuk performa maksimal',
-    descEn: 'Advanced formula for maximum performance',
+    titleId: 'INOVASI',
+    titleEn: 'INNOVATION',
+    descId: 'Terus mengembangkan formula terbaik',
+    descEn: 'Continuously developing the best formulas',
     number: '02',
   },
   {
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
       </svg>
     ),
-    titleId: 'PERLINDUNGAN TOTAL',
-    titleEn: 'TOTAL PROTECTION',
-    descId: 'Menjaga mesin dalam kondisi prima',
-    descEn: 'Keeping your engine in prime condition',
+    titleId: 'KONSISTENSI',
+    titleEn: 'CONSISTENCY',
+    descId: 'Kualitas terjaga di setiap produksi',
+    descEn: 'Quality maintained in every production',
     number: '03',
   },
   {
@@ -91,10 +98,10 @@ const values = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     ),
-    titleId: 'KOMUNITAS RIDER',
-    titleEn: 'RIDER COMMUNITY',
-    descId: 'Mendukung komunitas motor Indonesia',
-    descEn: 'Supporting Indonesian motorcycle community',
+    titleId: 'KEMITRAAN',
+    titleEn: 'PARTNERSHIP',
+    descId: 'Mengembangkan mitra usaha bersama',
+    descEn: 'Developing business partners together',
     number: '04',
   },
 ];
@@ -152,8 +159,8 @@ export default function AboutClient({ locale }: AboutClientProps) {
 
               <p className="font-racing-alt text-lg text-foreground-muted max-w-lg mb-8">
                 {locale === 'id'
-                  ? 'PT Syneral Indonesia adalah produsen oli motor premium Indonesia dengan teknologi Ester untuk performa mesin maksimal dan perlindungan optimal.'
-                  : 'PT Syneral Indonesia is an Indonesian premium motor oil manufacturer with Ester technology for maximum engine performance and optimal protection.'}
+                  ? 'PT SyneRal Indonesia beroperasi di kawasan industri Cikarang, memproduksi pelumas berkualitas premium melalui proses pengujian laboratorium dan arena kompetisi untuk sektor industri dan ritel.'
+                  : 'PT SyneRal Indonesia operates in the Cikarang industrial area, producing premium quality lubricants through laboratory testing and competition arena for industrial and retail sectors.'}
               </p>
 
               {/* Stats row */}
@@ -363,8 +370,95 @@ export default function AboutClient({ locale }: AboutClientProps) {
         </div>
       </section>
 
+      {/* History Section */}
+      <section className="py-24 relative overflow-hidden bg-black">
+        {/* Racing stripe */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
+
+        {/* Background */}
+        <div className="absolute inset-0 racing-stripes opacity-10" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="flex">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
+                  />
+                ))}
+              </div>
+              <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
+                {locale === 'id' ? 'PERJALANAN KAMI' : 'OUR JOURNEY'}
+              </span>
+              <div className="flex">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-green'}`}
+                  />
+                ))}
+              </div>
+            </div>
+            <h2 className="font-racing text-4xl md:text-5xl font-black text-white">
+              {locale === 'id' ? 'SEJARAH SYNERAL' : 'SYNERAL HISTORY'}
+            </h2>
+          </motion.div>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-racing-green/30 -translate-x-1/2 hidden md:block" />
+
+            <div className="space-y-8">
+              {history.map((item, index) => (
+                <motion.div
+                  key={item.year}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                >
+                  {/* Content */}
+                  <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                    <div className="relative inline-block">
+                      <div className="absolute inset-0 bg-background-secondary border border-white/10 skew-x-[-4deg]" />
+                      <div className="relative p-6">
+                        <p className="font-racing-alt text-foreground-muted">
+                          {locale === 'id' ? item.descId : item.descEn}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Year badge */}
+                  <div className="relative z-10">
+                    <div className="w-20 h-20 bg-racing-green skew-x-[-8deg] flex items-center justify-center">
+                      <span className="font-racing text-2xl font-black text-white skew-x-[8deg]">
+                        {item.year}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Empty space for alternating */}
+                  <div className="flex-1 hidden md:block" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Certifications Section - Full viewport */}
-      <section className="h-screen relative overflow-hidden flex items-center bg-black">
+      <section className="h-screen relative overflow-hidden flex items-center bg-background-secondary">
         {/* Racing stripe */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
