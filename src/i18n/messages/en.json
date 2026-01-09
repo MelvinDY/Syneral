@@ -72,10 +72,11 @@
     "title": "Our Products",
     "subtitle": "Premium motor oil choices for every need",
     "categories": {
-      "all": "All",
-      "4t": "4T Engine Oil",
-      "matic": "MATIC Oil",
-      "specialty": "Specialty"
+      "all": "All Products",
+      "motorcycle": "Motorcycle",
+      "grease": "Grease & Specialty",
+      "commercial": "Commercial & Marine",
+      "industrial": "Industrial"
     },
     "specs": {
       "viscosity": "Viscosity",

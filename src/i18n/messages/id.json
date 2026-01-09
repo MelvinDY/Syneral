@@ -72,10 +72,11 @@
     "title": "Produk Kami",
     "subtitle": "Pilihan oli motor premium untuk setiap kebutuhan",
     "categories": {
-      "all": "Semua",
-      "4t": "4T Engine Oil",
-      "matic": "MATIC Oil",
-      "specialty": "Specialty"
+      "all": "Semua Produk",
+      "motorcycle": "Motor",
+      "grease": "Gemuk & Spesial",
+      "commercial": "Komersial & Marine",
+      "industrial": "Industri"
     },
     "specs": {
       "viscosity": "Kekentalan",

@@ -13,7 +13,7 @@ interface Product {
   jasoStandard: string;
   volume: number;
   features?: { id: string[]; en: string[] };
-  color: string;
+  color?: string;
 }
 
 interface ProductComparisonProps {
@@ -83,11 +83,7 @@ export default function ProductComparison({ products, locale, onClose }: Product
                       <div className="flex flex-col items-center gap-3">
                         {/* Product icon */}
                         <div
-                          className="w-16 h-24 rounded-lg flex items-center justify-center"
-                          style={{
-                            background: `linear-gradient(135deg, ${product.color}20 0%, ${product.color}40 100%)`,
-                            border: `2px solid ${product.color}60`,
-                          }}
+                          className="w-16 h-24 rounded-lg flex items-center justify-center bg-gradient-to-b from-racing-green/20 to-racing-green/40 border-2 border-racing-green/60"
                         >
                           <span className="text-2xl font-bold text-white">S</span>
                         </div>
