@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import LanguageSwitcher from './LanguageSwitcher';
 
 const navItems = [
@@ -60,32 +61,15 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            {/* Racing number style logo */}
-            <div className="relative">
-              <div className="w-12 h-12 bg-racing-green skew-x-[-8deg] flex items-center justify-center group-hover:bg-racing-green-dark transition-colors">
-                <span className="font-racing text-white font-black text-2xl skew-x-[8deg]">S</span>
-              </div>
-              {/* Corner accent */}
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-white skew-x-[-8deg]" />
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-racing text-2xl font-bold text-white tracking-wider group-hover:text-racing-green transition-colors">
-                SYNERAL
-              </span>
-              <div className="flex items-center gap-2">
-                <div className="flex">
-                  {[...Array(3)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`w-1.5 h-1.5 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white/50'}`}
-                    />
-                  ))}
-                </div>
-                <span className="font-racing text-[9px] text-foreground-muted tracking-[0.3em]">
-                  PREMIUM GUARANTEED
-                </span>
-              </div>
+          <Link href="/" className="flex items-center group">
+            <div className="relative h-12 w-32 sm:h-14 sm:w-40">
+              <Image
+                src="/images/logo.png"
+                alt="SyneRal"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </Link>
 

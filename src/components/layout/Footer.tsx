@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import Image from 'next/image';
 
 const quickLinks = [
   { href: '/about', key: 'about', num: '01' },
@@ -71,30 +72,14 @@ export default function Footer() {
           {/* Brand - Takes more space */}
           <div className="lg:col-span-5">
             {/* Logo */}
-            <div className="flex items-center gap-4 mb-6">
-              <div className="relative">
-                <div className="w-16 h-16 bg-racing-green skew-x-[-8deg] flex items-center justify-center">
-                  <span className="font-racing text-white font-black text-3xl skew-x-[8deg]">S</span>
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-white skew-x-[-8deg]" />
-              </div>
-              <div>
-                <span className="font-racing text-3xl font-bold text-white tracking-wider">
-                  SYNERAL
-                </span>
-                <div className="flex items-center gap-2 mt-1">
-                  <div className="flex">
-                    {[...Array(4)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`w-2 h-2 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white/30'}`}
-                      />
-                    ))}
-                  </div>
-                  <span className="font-racing text-[10px] text-foreground-muted tracking-[0.2em]">
-                    INDONESIA
-                  </span>
-                </div>
+            <div className="mb-6">
+              <div className="relative h-14 w-44">
+                <Image
+                  src="/images/logo.png"
+                  alt="SyneRal Indonesia"
+                  fill
+                  className="object-contain object-left"
+                />
               </div>
             </div>
 
