@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import SectionHeading from '@/components/ui/SectionHeading';
 import Button from '@/components/ui/Button';
 import ProductComparison from '@/components/features/ProductComparison';
 import type { Locale } from '@/lib/types';
@@ -32,6 +31,8 @@ const demoProducts = [
       en: ['Maximum engine protection', 'High performance', 'Ester technology', 'Superior anti-wear']
     },
     color: '#e10600',
+    number: '01',
+    tier: 'PREMIUM',
   },
   {
     id: '2',
@@ -51,6 +52,8 @@ const demoProducts = [
       en: ['Daily protection', 'Economical', 'Stable performance', 'Anti-oxidation']
     },
     color: '#e10600',
+    number: '02',
+    tier: 'STANDARD',
   },
   {
     id: '3',
@@ -70,6 +73,8 @@ const demoProducts = [
       en: ['CVT protection', 'Smooth transmission', 'Ester technology', 'For modern scooters']
     },
     color: '#00a3e0',
+    number: '03',
+    tier: 'PREMIUM',
   },
   {
     id: '4',
@@ -89,6 +94,8 @@ const demoProducts = [
       en: ['Daily use', 'Cost effective', 'Optimal transmission', 'Anti-friction']
     },
     color: '#00a3e0',
+    number: '04',
+    tier: 'STANDARD',
   },
   {
     id: '5',
@@ -108,6 +115,8 @@ const demoProducts = [
       en: ['100% Ester', 'Extreme conditions', 'Racing performance', 'High temp protection']
     },
     color: '#d4af37',
+    number: '05',
+    tier: 'RACING',
   },
 ];
 
@@ -138,188 +147,340 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
   const selectedProducts = demoProducts.filter(p => comparisonProducts.includes(p.id));
 
   return (
-    <div className="min-h-screen py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading title={t('title')} subtitle={t('subtitle')} />
+    <div className="bg-black min-h-screen">
+      {/* Hero Section */}
+      <section className="h-screen relative overflow-hidden flex items-center">
+        {/* Background */}
+        <div className="absolute inset-0 bg-black" />
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                activeCategory === category
-                  ? 'bg-racing-red text-white'
-                  : 'bg-white/5 text-foreground-muted hover:bg-white/10 hover:text-white'
-              }`}
-            >
-              {t(`categories.${category}`)}
-            </button>
-          ))}
+        {/* Grid pattern */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(225,6,0,0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(225,6,0,0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px',
+          }}
+        />
+
+        {/* Large background text */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 racing-number text-[30vw] leading-none text-white/[0.02] pointer-events-none select-none">
+          OIL
         </div>
 
-        {/* Comparison bar */}
-        <AnimatePresence>
-          {comparisonProducts.length > 0 && (
+        {/* Racing stripe */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 w-full">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-12"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="flex">
+                {[...Array(6)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-red'}`}
+                  />
+                ))}
+              </div>
+              <span className="font-racing text-racing-red text-sm tracking-[0.2em]">
+                {locale === 'id' ? 'KATALOG PRODUK' : 'PRODUCT CATALOG'}
+              </span>
+            </div>
+            <h1 className="font-racing text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[0.9] mb-4">
+              {t('title')}
+            </h1>
+            <p className="font-racing-alt text-foreground-muted text-lg max-w-xl">
+              {t('subtitle')}
+            </p>
+          </motion.div>
+
+          {/* Category Filter - Horizontal tabs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-wrap gap-3 mb-12"
+          >
+            {categories.map((category, index) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-6 py-3 flex items-center gap-2 border transition-all duration-300 ${
+                  activeCategory === category
+                    ? 'bg-racing-red border-racing-red'
+                    : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
+                }`}
+              >
+                <span className={`font-racing text-xs ${activeCategory === category ? 'text-white/60' : 'text-foreground-muted'}`}>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className={`font-racing text-sm tracking-wider ${activeCategory === category ? 'text-white' : 'text-foreground-muted'}`}>
+                  {t(`categories.${category}`).toUpperCase()}
+                </span>
+              </button>
+            ))}
+          </motion.div>
+
+          {/* Products count */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="flex items-center gap-4 mb-8"
+          >
+            <div className="h-px flex-1 bg-white/10" />
+            <span className="font-racing text-sm text-foreground-muted">
+              {filteredProducts.length} {locale === 'id' ? 'PRODUK DITEMUKAN' : 'PRODUCTS FOUND'}
+            </span>
+            <div className="h-px flex-1 bg-white/10" />
+          </motion.div>
+
+          {/* Scroll hint */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          >
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              className="fixed bottom-0 left-0 right-0 z-40 bg-background-secondary/95 backdrop-blur-lg border-t border-white/10 p-4"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="flex flex-col items-center gap-2"
             >
-              <div className="max-w-7xl mx-auto flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <span className="text-white font-medium">
-                    {comparisonProducts.length} {t('comparison.selectProducts')}
-                  </span>
-                  <div className="flex gap-2">
+              <span className="font-racing text-xs text-foreground-muted tracking-widest">
+                {locale === 'id' ? 'LIHAT PRODUK' : 'VIEW PRODUCTS'}
+              </span>
+              <svg className="w-6 h-6 text-racing-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Products Grid Section */}
+      <section className="relative py-24 bg-background-secondary">
+        {/* Racing stripe */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+
+        {/* Background pattern */}
+        <div className="absolute inset-0 racing-stripes opacity-10" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Products Grid - Masonry style */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 pb-24">
+            <AnimatePresence mode="wait">
+              {filteredProducts.map((product, index) => (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className={`group ${index === 0 ? 'md:col-span-2' : ''}`}
+                >
+                  <div className="relative h-full bg-gradient-to-br from-background/95 to-background-secondary/95 border border-white/10 group-hover:border-white/20 transition-all duration-300 overflow-hidden">
+                    {/* Top accent bar */}
+                    <div
+                      className="absolute top-0 left-0 right-0 h-1"
+                      style={{ backgroundColor: product.color }}
+                    />
+
+                    {/* Content */}
+                    <div className={`relative p-6 lg:p-8 ${index === 0 ? 'lg:flex lg:gap-8 lg:items-center' : ''}`}>
+                      {/* Left side - Product visual */}
+                      <div className={`relative ${index === 0 ? 'lg:w-1/3' : ''} mb-6 lg:mb-0`}>
+                        {/* Product number - Large watermark */}
+                        <div className="absolute -top-4 -left-4 racing-number text-8xl text-white/5 pointer-events-none">
+                          {product.number}
+                        </div>
+
+                        {/* Bottle visual */}
+                        <div className="relative flex justify-center py-8">
+                          <div className="relative">
+                            <div
+                              className="w-28 h-44 rounded-lg relative group-hover:scale-105 transition-transform duration-500"
+                              style={{
+                                background: `linear-gradient(135deg, ${product.color}25 0%, ${product.color}10 100%)`,
+                                border: `2px solid ${product.color}50`,
+                              }}
+                            >
+                              {/* Cap */}
+                              <div
+                                className="absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-5 rounded-t-lg"
+                                style={{ backgroundColor: product.color }}
+                              />
+                              {/* Label */}
+                              <div className="absolute inset-4 flex flex-col items-center justify-center">
+                                <span className="font-racing text-4xl font-black text-white">S</span>
+                                <span className="font-racing text-xs text-white/60 mt-1">{product.viscosity}</span>
+                              </div>
+                            </div>
+                            {/* Glow */}
+                            <div
+                              className="absolute inset-0 blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-lg"
+                              style={{ backgroundColor: product.color }}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Compare button */}
+                        <button
+                          onClick={() => toggleComparison(product.id)}
+                          className={`absolute top-4 right-4 flex items-center gap-2 px-3 py-2 rounded transition-all ${
+                            comparisonProducts.includes(product.id)
+                              ? 'bg-racing-red text-white'
+                              : 'bg-white/10 text-white/60 hover:bg-white/20 hover:text-white'
+                          }`}
+                        >
+                          <span className="font-racing text-xs">
+                            {comparisonProducts.includes(product.id) ? 'SELECTED' : 'COMPARE'}
+                          </span>
+                        </button>
+                      </div>
+
+                      {/* Right side - Info */}
+                      <div className={`${index === 0 ? 'lg:flex-1' : ''}`}>
+                        {/* Category & Tier badges */}
+                        <div className="flex items-center gap-3 mb-4">
+                          <div
+                            className="px-3 py-1 rounded font-racing text-xs tracking-wider text-white"
+                            style={{ backgroundColor: product.color }}
+                          >
+                            {product.category.toUpperCase()}
+                          </div>
+                          <div className="px-3 py-1 bg-white/10 rounded font-racing text-xs tracking-wider text-foreground-muted">
+                            {product.tier}
+                          </div>
+                        </div>
+
+                        {/* Product name */}
+                        <h3 className="font-racing text-xl lg:text-2xl text-white mb-3 tracking-wide group-hover:text-racing-red transition-colors">
+                          {product.name[locale]}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="font-racing-alt text-foreground-muted text-sm mb-6">
+                          {product.description[locale]}
+                        </p>
+
+                        {/* Specs grid */}
+                        <div className="grid grid-cols-2 gap-3 mb-6">
+                          {[
+                            { label: 'VISCOSITY', value: product.viscosity },
+                            { label: 'VOLUME', value: `${product.volume}ml` },
+                            { label: 'API', value: product.apiStandard },
+                            { label: 'JASO', value: product.jasoStandard },
+                          ].map((spec) => (
+                            <div key={spec.label} className="bg-white/5 rounded px-3 py-2">
+                              <div className="font-racing text-[10px] text-foreground-muted tracking-wider">
+                                {spec.label}
+                              </div>
+                              <div className="font-racing text-sm text-white">
+                                {spec.value}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Features */}
+                        <div className="flex flex-wrap gap-2">
+                          {product.features[locale].slice(0, 3).map((feature, i) => (
+                            <span
+                              key={i}
+                              className="font-racing-alt text-xs text-foreground-muted px-2 py-1 border border-white/10 rounded"
+                            >
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bottom accent */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-0.5 opacity-30"
+                      style={{ backgroundColor: product.color }}
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* Bottom racing stripe */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+      </section>
+
+      {/* Comparison bar */}
+      <AnimatePresence>
+        {comparisonProducts.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            className="fixed bottom-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-lg border-t border-racing-red/30"
+          >
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-6">
+                  {/* Count */}
+                  <div className="bg-racing-red px-4 py-2 rounded">
+                    <span className="font-racing text-white text-lg">{comparisonProducts.length}/3</span>
+                  </div>
+
+                  {/* Selected products */}
+                  <div className="hidden md:flex items-center gap-2">
                     {selectedProducts.map(product => (
                       <span
                         key={product.id}
-                        className="px-3 py-1 bg-racing-red/20 text-racing-red text-sm rounded-full"
+                        className="px-3 py-1 bg-white/10 rounded font-racing text-xs text-white"
                       >
                         {product.name[locale].split(' ').slice(0, 2).join(' ')}
                       </span>
                     ))}
                   </div>
                 </div>
+
                 <div className="flex gap-3">
-                  <Button
-                    variant="ghost"
-                    size="sm"
+                  <button
                     onClick={() => setComparisonProducts([])}
+                    className="px-4 py-2 bg-white/10 hover:bg-white/20 rounded transition-colors font-racing text-sm text-white"
                   >
-                    {t('comparison.clearAll')}
-                  </Button>
-                  <Button
-                    size="sm"
+                    {t('comparison.clearAll').toUpperCase()}
+                  </button>
+                  <button
                     onClick={() => setShowComparison(true)}
                     disabled={comparisonProducts.length < 2}
+                    className="px-6 py-2 bg-racing-red hover:bg-racing-red-dark rounded transition-colors font-racing text-sm text-white disabled:opacity-50"
                   >
-                    {t('comparison.title')}
-                  </Button>
+                    {t('comparison.title').toUpperCase()}
+                  </button>
                 </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-24">
-          <AnimatePresence mode="wait">
-            {filteredProducts.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                whileHover={{ y: -8 }}
-                className="group"
-              >
-                <div className="bg-background-secondary rounded-2xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-300 h-full flex flex-col">
-                  {/* Product image placeholder */}
-                  <div className="relative aspect-square bg-gradient-to-br from-background-tertiary to-background p-8 flex items-center justify-center">
-                    {/* Oil bottle illustration */}
-                    <div className="relative">
-                      <div
-                        className="w-28 h-40 rounded-lg transition-transform group-hover:scale-110 duration-300"
-                        style={{
-                          background: `linear-gradient(135deg, ${product.color}20 0%, ${product.color}40 100%)`,
-                          border: `2px solid ${product.color}60`,
-                        }}
-                      >
-                        <div
-                          className="absolute top-2 left-1/2 -translate-x-1/2 w-7 h-3 rounded-t-lg"
-                          style={{ backgroundColor: product.color }}
-                        />
-                        <div className="absolute inset-3 flex flex-col items-center justify-center text-center">
-                          <span className="text-xl font-bold text-white">S</span>
-                          <span className="text-[10px] text-white/80 mt-1">{product.viscosity}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Category badge */}
-                    <div className="absolute top-4 left-4">
-                      <span
-                        className="px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full text-white"
-                        style={{ backgroundColor: `${product.color}cc` }}
-                      >
-                        {product.category}
-                      </span>
-                    </div>
-
-                    {/* Compare checkbox */}
-                    <button
-                      onClick={() => toggleComparison(product.id)}
-                      className={`absolute top-4 right-4 w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
-                        comparisonProducts.includes(product.id)
-                          ? 'bg-racing-red text-white'
-                          : 'bg-white/10 text-white/50 hover:bg-white/20 hover:text-white'
-                      }`}
-                    >
-                      {comparisonProducts.includes(product.id) ? (
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      ) : (
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                        </svg>
-                      )}
-                    </button>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-racing-red transition-colors">
-                      {product.name[locale]}
-                    </h3>
-                    <p className="text-foreground-muted text-sm mb-4 flex-1">
-                      {product.description[locale]}
-                    </p>
-
-                    {/* Specs */}
-                    <div className="grid grid-cols-2 gap-2 mb-4">
-                      <div className="px-3 py-2 bg-white/5 rounded-lg">
-                        <div className="text-xs text-foreground-muted">Viscosity</div>
-                        <div className="text-sm font-medium text-white">{product.viscosity}</div>
-                      </div>
-                      <div className="px-3 py-2 bg-white/5 rounded-lg">
-                        <div className="text-xs text-foreground-muted">Volume</div>
-                        <div className="text-sm font-medium text-white">{product.volume}ml</div>
-                      </div>
-                    </div>
-
-                    {/* Standards */}
-                    <div className="flex gap-2">
-                      <span className="px-2 py-1 text-xs bg-racing-red/10 text-racing-red rounded">
-                        {product.apiStandard}
-                      </span>
-                      <span className="px-2 py-1 text-xs bg-electric-blue/10 text-electric-blue rounded">
-                        {product.jasoStandard}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Comparison Modal */}
-        <AnimatePresence>
-          {showComparison && selectedProducts.length >= 2 && (
-            <ProductComparison
-              products={selectedProducts}
-              locale={locale}
-              onClose={() => setShowComparison(false)}
-            />
-          )}
-        </AnimatePresence>
-      </div>
+      {/* Comparison Modal */}
+      <AnimatePresence>
+        {showComparison && selectedProducts.length >= 2 && (
+          <ProductComparison
+            products={selectedProducts}
+            locale={locale}
+            onClose={() => setShowComparison(false)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
