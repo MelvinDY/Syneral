@@ -13,7 +13,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
   const t = useTranslations('home.hero');
 
   return (
-    <section className="relative h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden py-20 sm:py-0">
       {/* Background layers */}
       <div className="absolute inset-0 bg-black" />
 
@@ -37,7 +37,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 0.03, x: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute right-0 top-1/2 -translate-y-1/2 racing-number text-[40vw] leading-none text-white pointer-events-none select-none"
+        className="absolute right-0 top-1/2 -translate-y-1/2 racing-number text-[40vw] leading-none text-white pointer-events-none select-none hidden sm:block"
       >
         01
       </motion.div>
@@ -69,7 +69,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 sm:py-20">
         <div className="flex flex-col">
           {/* Text content - centered */}
           <div className="relative z-10 max-w-3xl">
@@ -84,11 +84,11 @@ export default function HeroSection({ locale }: HeroSectionProps) {
                 {[...Array(6)].map((_, i) => (
                   <div
                     key={i}
-                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-green'}`}
+                    className={`w-2 h-2 sm:w-3 sm:h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-green'}`}
                   />
                 ))}
               </div>
-              <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
+              <span className="font-racing text-racing-green text-xs sm:text-sm tracking-[0.2em]">
                 {t('subtitle')}
               </span>
             </motion.div>
@@ -99,7 +99,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h1 className="font-racing text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[0.9] mb-2">
+              <h1 className="font-racing text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[0.9] mb-2">
                 <span className="block">{locale === 'id' ? 'PERFORMA' : 'PERFORMANCE'}</span>
                 <span className="block text-racing-green">{locale === 'id' ? 'TANPA' : 'WITHOUT'}</span>
                 <span className="block relative">
@@ -121,7 +121,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="font-racing-alt text-lg sm:text-xl text-foreground-muted max-w-lg mt-8 mb-10"
+              className="font-racing-alt text-base sm:text-lg md:text-xl text-foreground-muted max-w-lg mt-6 sm:mt-8 mb-8 sm:mb-10"
             >
               {t('description')}
             </motion.p>
@@ -150,9 +150,9 @@ export default function HeroSection({ locale }: HeroSectionProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 lg:mt-24"
+            className="hidden sm:block mt-16 lg:mt-24"
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 md:gap-6">
               {[
                 { value: 'API SN', label: locale === 'id' ? 'STANDAR KUALITAS' : 'QUALITY STANDARD' },
                 { value: 'JASO MA2', label: locale === 'id' ? 'SERTIFIKASI' : 'CERTIFICATION' },
@@ -170,11 +170,11 @@ export default function HeroSection({ locale }: HeroSectionProps) {
                   <div className="absolute inset-0 bg-gradient-to-br from-background-secondary/80 to-background/80 backdrop-blur-sm border border-white/10 border-b-racing-green/50 group-hover:border-racing-green/30 group-hover:border-b-racing-green transition-colors skew-x-[-8deg]" />
 
                   {/* Content */}
-                  <div className="relative p-4 md:p-6 text-center">
-                    <div className="font-racing text-2xl md:text-3xl font-bold text-white mb-1">
+                  <div className="relative p-3 sm:p-4 md:p-6 text-center">
+                    <div className="font-racing text-lg sm:text-2xl md:text-3xl font-bold text-white mb-1">
                       {stat.value}
                     </div>
-                    <div className="font-racing text-[9px] md:text-[10px] text-foreground-muted tracking-widest">
+                    <div className="font-racing text-[8px] sm:text-[9px] md:text-[10px] text-foreground-muted tracking-widest">
                       {stat.label}
                     </div>
                   </div>
@@ -195,7 +195,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.5 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 hidden sm:block"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
