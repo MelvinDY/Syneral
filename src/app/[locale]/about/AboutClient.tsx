@@ -52,7 +52,7 @@ const history = [
   { year: '2006', descId: 'PT SyneRal Indonesia didirikan sebagai perusahaan yang memasarkan pelumas industri dengan merek SyneRal.', descEn: 'PT SyneRal Indonesia was established as a company marketing industrial lubricants under the SyneRal brand.' },
   { year: '2009', descId: 'Memasarkan pelumas kemasan botol untuk sepeda motor dan mobil, serta produk kimia perawatan mesin.', descEn: 'Started marketing bottled lubricants for motorcycles and cars, plus engine care chemical products.' },
   { year: '2010', descId: 'Mendirikan gedung kantor dan pabrik dengan luas 3000 m².', descEn: 'Built office building and factory with 3000 m² area.' },
-  { year: '2012', descId: 'Memproduksi pelumas dengan kapasitas ± 10.000.000 Liter/tahun.', descEn: 'Producing lubricants with capacity of ± 10,000,000 Liters/year.' },
+  { year: 'NOW', descId: 'Memproduksi pelumas dengan kapasitas ± 10.000.000 Liter/tahun.', descEn: 'Producing lubricants with capacity of ± 10,000,000 Liters/year.' },
 ];
 
 const values = [
@@ -249,38 +249,33 @@ export default function AboutClient({ locale }: AboutClientProps) {
       </section>
 
       {/* Story Section - Full viewport */}
-      <section className="h-screen relative overflow-hidden flex items-center bg-background-secondary">
+      <section className="min-h-screen relative overflow-hidden flex items-center bg-background-secondary py-24">
         {/* Racing stripe */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
         {/* Background */}
-        <div className="absolute inset-0 opacity-20">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-              `,
-              backgroundSize: '50px 50px',
-            }}
-          />
+        <div className="absolute inset-0 racing-stripes opacity-10" />
+
+        {/* Large background text */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 racing-number text-[20vw] leading-none text-white/[0.02] pointer-events-none select-none">
+          MV
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Mission & Vision */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left - Mission & Vision */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
+              {/* Checkered accent */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex">
-                  {[...Array(4)].map((_, i) => (
+                  {[...Array(6)].map((_, i) => (
                     <div
                       key={i}
-                      className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
+                      className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-green'}`}
                     />
                   ))}
                 </div>
@@ -289,76 +284,99 @@ export default function AboutClient({ locale }: AboutClientProps) {
                 </span>
               </div>
 
-              <h2 className="font-racing text-3xl md:text-4xl lg:text-5xl font-black text-white mb-8">
-                {locale === 'id' ? 'MISI & VISI' : 'MISSION & VISION'}
+              <h2 className="font-racing text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[0.9] mb-10">
+                <span className="block">{locale === 'id' ? 'MISI' : 'MISSION'}</span>
+                <span className="block text-racing-green">&</span>
+                <span className="block">{locale === 'id' ? 'VISI' : 'VISION'}</span>
               </h2>
 
               {/* Mission card */}
-              <div className="relative mb-6">
-                <div className="absolute inset-0 bg-background/80 border border-white/10 skew-x-[-4deg]" />
+              <div className="relative mb-6 group">
+                <div className="absolute inset-0 bg-gradient-to-r from-racing-green/20 to-racing-green/5 border-2 border-racing-green/40 skew-x-[-4deg]" />
+                <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-racing-green" />
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-r-2 border-b-2 border-racing-green" />
                 <div className="relative p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-racing-green skew-x-[-8deg] flex items-center justify-center">
-                      <span className="font-racing text-white skew-x-[8deg]">M</span>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-racing-green skew-x-[-8deg] flex items-center justify-center">
+                      <span className="font-racing text-xl font-black text-white skew-x-[8deg]">M</span>
                     </div>
                     <h3 className="font-racing text-xl text-white">{t('mission.title')}</h3>
                   </div>
-                  <p className="font-racing-alt text-foreground-muted">
+                  <p className="font-racing-alt text-foreground-muted leading-relaxed">
                     {t('mission.description')}
                   </p>
                 </div>
               </div>
 
               {/* Vision card */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-background/80 border border-white/10 skew-x-[-4deg]" />
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-gold/5 border-2 border-gold/40 skew-x-[-4deg]" />
+                <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-gold" />
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-r-2 border-b-2 border-gold" />
                 <div className="relative p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-gold skew-x-[-8deg] flex items-center justify-center">
-                      <span className="font-racing text-black skew-x-[8deg]">V</span>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-gold skew-x-[-8deg] flex items-center justify-center">
+                      <span className="font-racing text-xl font-black text-black skew-x-[8deg]">V</span>
                     </div>
                     <h3 className="font-racing text-xl text-white">{t('vision.title')}</h3>
                   </div>
-                  <p className="font-racing-alt text-foreground-muted">
+                  <p className="font-racing-alt text-foreground-muted leading-relaxed">
                     {t('vision.description')}
                   </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Values */}
+            {/* Right - Values */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <h3 className="font-racing text-2xl text-white mb-6">
+              {/* Checkered accent */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="flex">
+                  {[...Array(6)].map((_, i) => (
+                    <div
+                      key={i}
+                      className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
+                    />
+                  ))}
+                </div>
+                <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
+                  {locale === 'id' ? 'NILAI-NILAI' : 'VALUES'}
+                </span>
+              </div>
+
+              <h3 className="font-racing text-3xl md:text-4xl font-black text-white mb-8">
                 {locale === 'id' ? 'NILAI-NILAI KAMI' : 'OUR VALUES'}
               </h3>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {values.map((value, index) => (
                   <motion.div
                     key={value.titleEn}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
                     className="relative group"
                   >
-                    <div className="absolute inset-0 bg-background/60 border border-white/10 skew-x-[-4deg] group-hover:border-racing-green/30 transition-colors" />
-                    <div className="relative p-4">
+                    <div className="absolute inset-0 bg-white/5 skew-x-[-8deg] group-hover:bg-racing-green/10 transition-colors" />
+                    <div className="relative p-6 md:p-8">
                       {/* Number */}
-                      <span className="absolute top-2 right-2 racing-number text-2xl text-white/10">
+                      <span className="absolute top-4 right-4 racing-number text-5xl md:text-6xl text-white/10 group-hover:text-racing-green/20 transition-colors">
                         {value.number}
                       </span>
 
-                      <div className="text-racing-green mb-3">{value.icon}</div>
-                      <h4 className="font-racing text-sm text-white mb-1">
+                      <div className="text-racing-green mb-4 group-hover:scale-110 transition-transform origin-left [&>svg]:w-10 [&>svg]:h-10 md:[&>svg]:w-12 md:[&>svg]:h-12">
+                        {value.icon}
+                      </div>
+                      <h4 className="font-racing text-lg md:text-xl text-white mb-3">
                         {locale === 'id' ? value.titleId : value.titleEn}
                       </h4>
-                      <p className="font-racing-alt text-xs text-foreground-muted">
+                      <p className="font-racing-alt text-sm md:text-base text-foreground-muted leading-relaxed">
                         {locale === 'id' ? value.descId : value.descEn}
                       </p>
                     </div>
@@ -378,7 +396,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
         {/* Background */}
         <div className="absolute inset-0 racing-stripes opacity-10" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -386,73 +404,52 @@ export default function AboutClient({ locale }: AboutClientProps) {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="flex">
-                {[...Array(4)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
-                  />
-                ))}
-              </div>
-              <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
-                {locale === 'id' ? 'PERJALANAN KAMI' : 'OUR JOURNEY'}
-              </span>
-              <div className="flex">
-                {[...Array(4)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-green'}`}
-                  />
-                ))}
-              </div>
-            </div>
+            <span className="font-racing text-racing-green text-sm tracking-[0.3em] block mb-3">
+              {locale === 'id' ? 'PERJALANAN KAMI' : 'OUR JOURNEY'}
+            </span>
             <h2 className="font-racing text-4xl md:text-5xl font-black text-white">
               {locale === 'id' ? 'SEJARAH SYNERAL' : 'SYNERAL HISTORY'}
             </h2>
           </motion.div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-racing-green/30 -translate-x-1/2 hidden md:block" />
+          {/* Timeline Cards */}
+          <div className="space-y-6">
+            {history.map((item, index) => (
+              <motion.div
+                key={item.year}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`relative overflow-hidden rounded-2xl ${item.year === 'NOW' ? 'bg-gradient-to-r from-gold/20 to-gold/5 border border-gold/30' : 'bg-background-secondary border border-white/10'}`}
+              >
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 p-6 md:p-8">
+                  {/* Large Year */}
+                  <div className="flex-shrink-0">
+                    <span className={`font-racing text-5xl md:text-7xl font-black ${item.year === 'NOW' ? 'text-gold' : 'text-racing-green'}`}>
+                      {item.year}
+                    </span>
+                  </div>
 
-            <div className="space-y-8">
-              {history.map((item, index) => (
-                <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                >
+                  {/* Divider */}
+                  <div className={`hidden md:block w-px h-16 ${item.year === 'NOW' ? 'bg-gold/30' : 'bg-white/20'}`} />
+
                   {/* Content */}
-                  <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className="relative inline-block">
-                      <div className="absolute inset-0 bg-background-secondary border border-white/10 skew-x-[-4deg]" />
-                      <div className="relative p-6">
-                        <p className="font-racing-alt text-foreground-muted">
-                          {locale === 'id' ? item.descId : item.descEn}
-                        </p>
-                      </div>
-                    </div>
+                  <div className="flex-1">
+                    <p className="font-racing-alt text-foreground-muted text-lg leading-relaxed">
+                      {locale === 'id' ? item.descId : item.descEn}
+                    </p>
                   </div>
 
-                  {/* Year badge */}
-                  <div className="relative z-10">
-                    <div className="w-20 h-20 bg-racing-green skew-x-[-8deg] flex items-center justify-center">
-                      <span className="font-racing text-2xl font-black text-white skew-x-[8deg]">
-                        {item.year}
-                      </span>
-                    </div>
+                  {/* Index number */}
+                  <div className="absolute top-4 right-4 md:static">
+                    <span className={`font-racing text-xs ${item.year === 'NOW' ? 'text-gold/50' : 'text-white/20'}`}>
+                      0{index + 1}
+                    </span>
                   </div>
-
-                  {/* Empty space for alternating */}
-                  <div className="flex-1 hidden md:block" />
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
