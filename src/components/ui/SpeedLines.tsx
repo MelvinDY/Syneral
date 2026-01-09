@@ -16,7 +16,7 @@ export default function SpeedLines({
   intensity = 'medium',
 }: SpeedLinesProps) {
   const colors = {
-    red: 'rgba(225, 6, 0, VAR)',
+    red: 'rgba(0, 150, 64, VAR)', // Now green (Syneral brand color)
     blue: 'rgba(0, 163, 224, VAR)',
     white: 'rgba(255, 255, 255, VAR)',
   };

@@ -41,7 +41,7 @@ export default function SectionHeading({
           {[...Array(4)].map((_, i) => (
             <div
               key={i}
-              className={`w-2 h-2 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white'}`}
+              className={`w-2 h-2 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
             />
           ))}
         </div>
@@ -54,7 +54,7 @@ export default function SectionHeading({
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className={`absolute -bottom-2 ${stripeAlign[align]} h-1 w-20 bg-gradient-to-r from-racing-red to-racing-red-dark origin-left`}
+          className={`absolute -bottom-2 ${stripeAlign[align]} h-1 w-20 bg-gradient-to-r from-racing-green to-racing-green-dark origin-left`}
         />
       </h2>
       {subtitle && (

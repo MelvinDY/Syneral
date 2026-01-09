@@ -13,7 +13,7 @@ export default function NotFound() {
             404
           </span>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-racing-red to-gold bg-clip-text text-transparent">
+            <span className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-racing-green to-gold bg-clip-text text-transparent">
               404
             </span>
           </div>

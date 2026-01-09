@@ -43,8 +43,8 @@ export default function HeroSection({ locale }: HeroSectionProps) {
       </motion.div>
 
       {/* Red accent glow */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-racing-red/10 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-racing-red/20 to-transparent blur-3xl" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-racing-green/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-racing-green/20 to-transparent blur-3xl" />
 
       {/* Speed lines */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -59,7 +59,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
               repeat: Infinity,
               repeatDelay: 3,
             }}
-            className="absolute h-[2px] bg-gradient-to-r from-transparent via-racing-red to-transparent"
+            className="absolute h-[2px] bg-gradient-to-r from-transparent via-racing-green to-transparent"
             style={{
               top: `${20 + i * 15}%`,
               width: '50%',
@@ -84,11 +84,11 @@ export default function HeroSection({ locale }: HeroSectionProps) {
                 {[...Array(6)].map((_, i) => (
                   <div
                     key={i}
-                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-red'}`}
+                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-green'}`}
                   />
                 ))}
               </div>
-              <span className="font-racing text-racing-red text-sm tracking-[0.2em]">
+              <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
                 {t('subtitle')}
               </span>
             </motion.div>
@@ -101,7 +101,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
             >
               <h1 className="font-racing text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-[0.9] mb-2">
                 <span className="block">{locale === 'id' ? 'PERFORMA' : 'PERFORMANCE'}</span>
-                <span className="block text-racing-red">{locale === 'id' ? 'TANPA' : 'WITHOUT'}</span>
+                <span className="block text-racing-green">{locale === 'id' ? 'TANPA' : 'WITHOUT'}</span>
                 <span className="block relative">
                   {locale === 'id' ? 'KOMPROMI' : 'COMPROMISE'}
                   {/* Underline accent */}
@@ -109,7 +109,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
-                    className="absolute -bottom-2 left-0 h-2 bg-racing-red origin-left"
+                    className="absolute -bottom-2 left-0 h-2 bg-racing-green origin-left"
                     style={{ width: '60%' }}
                   />
                 </span>
@@ -167,7 +167,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
                   className="relative group"
                 >
                   {/* Parallelogram background with built-in bottom border */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-background-secondary/80 to-background/80 backdrop-blur-sm border border-white/10 border-b-racing-red/50 group-hover:border-racing-red/30 group-hover:border-b-racing-red transition-colors skew-x-[-8deg]" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-background-secondary/80 to-background/80 backdrop-blur-sm border border-white/10 border-b-racing-green/50 group-hover:border-racing-green/30 group-hover:border-b-racing-green transition-colors skew-x-[-8deg]" />
 
                   {/* Content */}
                   <div className="relative p-4 md:p-6 text-center">
@@ -207,7 +207,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1 h-2 bg-racing-red rounded-full"
+              className="w-1 h-2 bg-racing-green rounded-full"
             />
           </div>
         </motion.div>

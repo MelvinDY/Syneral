@@ -16,7 +16,7 @@ const certifications = [
       id: 'Standar kualitas oli motor tertinggi dari Amerika untuk perlindungan mesin optimal',
       en: 'Highest motor oil quality standard from America for optimal engine protection'
     },
-    color: '#e10600',
+    color: '#009640',
     number: '01',
   },
   {
@@ -116,10 +116,10 @@ export default function AboutClient({ locale }: AboutClientProps) {
         </div>
 
         {/* Red accent */}
-        <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-racing-red/10 to-transparent" />
+        <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-racing-green/10 to-transparent" />
 
         {/* Racing stripe top */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -135,18 +135,18 @@ export default function AboutClient({ locale }: AboutClientProps) {
                   {[...Array(6)].map((_, i) => (
                     <div
                       key={i}
-                      className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-red'}`}
+                      className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-green'}`}
                     />
                   ))}
                 </div>
-                <span className="font-racing text-racing-red text-sm tracking-[0.2em]">
+                <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
                   {locale === 'id' ? 'TENTANG KAMI' : 'ABOUT US'}
                 </span>
               </div>
 
               <h1 className="font-racing text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[0.9] mb-6">
                 <span className="block">PREMIUM</span>
-                <span className="block text-racing-red">GUARANTEED</span>
+                <span className="block text-racing-green">GUARANTEED</span>
                 <span className="block">LUBRICANT</span>
               </h1>
 
@@ -166,9 +166,9 @@ export default function AboutClient({ locale }: AboutClientProps) {
                     transition={{ delay: 0.3 + index * 0.1 }}
                     className="relative group"
                   >
-                    <div className="absolute inset-0 bg-white/5 skew-x-[-8deg] group-hover:bg-racing-red/10 transition-colors" />
+                    <div className="absolute inset-0 bg-white/5 skew-x-[-8deg] group-hover:bg-racing-green/10 transition-colors" />
                     <div className="relative py-3 text-center">
-                      <div className="font-racing text-2xl font-bold text-racing-red">
+                      <div className="font-racing text-2xl font-bold text-racing-green">
                         {stat.value}
                       </div>
                       <div className="font-racing text-[8px] text-foreground-muted tracking-wider">
@@ -189,29 +189,29 @@ export default function AboutClient({ locale }: AboutClientProps) {
             >
               <div className="relative">
                 {/* Parallelogram frame */}
-                <div className="absolute inset-0 border-2 border-racing-red/30 skew-x-[-8deg]" />
+                <div className="absolute inset-0 border-2 border-racing-green/30 skew-x-[-8deg]" />
 
                 {/* Oil bottle visual */}
                 <div className="relative p-12 flex items-center justify-center">
                   <div className="relative">
-                    <div className="w-40 h-60 skew-x-[-8deg] bg-gradient-to-br from-racing-red/20 to-racing-red/5 border-2 border-racing-red/40 relative">
+                    <div className="w-40 h-60 skew-x-[-8deg] bg-gradient-to-br from-racing-green/20 to-racing-green/5 border-2 border-racing-green/40 relative">
                       {/* Cap */}
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-14 h-6 bg-racing-red" />
+                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-14 h-6 bg-racing-green" />
                       {/* Label */}
                       <div className="absolute inset-4 flex flex-col items-center justify-center skew-x-[8deg]">
                         <span className="font-racing text-6xl font-black text-white">S</span>
                         <span className="font-racing text-sm text-white/60 mt-2">SYNERAL</span>
-                        <span className="font-racing text-xs text-racing-red mt-1">PREMIUM OIL</span>
+                        <span className="font-racing text-xs text-racing-green mt-1">PREMIUM OIL</span>
                       </div>
                     </div>
                     {/* Glow */}
-                    <div className="absolute inset-0 blur-3xl bg-racing-red/20" />
+                    <div className="absolute inset-0 blur-3xl bg-racing-green/20" />
                   </div>
                 </div>
 
                 {/* Corner accents */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-racing-red" />
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-racing-red" />
+                <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-racing-green" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-racing-green" />
               </div>
             </motion.div>
           </div>
@@ -234,7 +234,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
               <motion.div
                 animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-1 h-2 bg-racing-red rounded-full"
+                className="w-1 h-2 bg-racing-green rounded-full"
               />
             </div>
           </motion.div>
@@ -244,7 +244,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
       {/* Story Section - Full viewport */}
       <section className="h-screen relative overflow-hidden flex items-center bg-background-secondary">
         {/* Racing stripe */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
         {/* Background */}
         <div className="absolute inset-0 opacity-20">
@@ -273,11 +273,11 @@ export default function AboutClient({ locale }: AboutClientProps) {
                   {[...Array(4)].map((_, i) => (
                     <div
                       key={i}
-                      className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white'}`}
+                      className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
                     />
                   ))}
                 </div>
-                <span className="font-racing text-racing-red text-sm tracking-[0.2em]">
+                <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
                   {locale === 'id' ? 'CERITA KAMI' : 'OUR STORY'}
                 </span>
               </div>
@@ -291,7 +291,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
                 <div className="absolute inset-0 bg-background/80 border border-white/10 skew-x-[-4deg]" />
                 <div className="relative p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-racing-red skew-x-[-8deg] flex items-center justify-center">
+                    <div className="w-10 h-10 bg-racing-green skew-x-[-8deg] flex items-center justify-center">
                       <span className="font-racing text-white skew-x-[8deg]">M</span>
                     </div>
                     <h3 className="font-racing text-xl text-white">{t('mission.title')}</h3>
@@ -340,14 +340,14 @@ export default function AboutClient({ locale }: AboutClientProps) {
                     transition={{ delay: index * 0.1 }}
                     className="relative group"
                   >
-                    <div className="absolute inset-0 bg-background/60 border border-white/10 skew-x-[-4deg] group-hover:border-racing-red/30 transition-colors" />
+                    <div className="absolute inset-0 bg-background/60 border border-white/10 skew-x-[-4deg] group-hover:border-racing-green/30 transition-colors" />
                     <div className="relative p-4">
                       {/* Number */}
                       <span className="absolute top-2 right-2 racing-number text-2xl text-white/10">
                         {value.number}
                       </span>
 
-                      <div className="text-racing-red mb-3">{value.icon}</div>
+                      <div className="text-racing-green mb-3">{value.icon}</div>
                       <h4 className="font-racing text-sm text-white mb-1">
                         {locale === 'id' ? value.titleId : value.titleEn}
                       </h4>
@@ -366,7 +366,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
       {/* Certifications Section - Full viewport */}
       <section className="h-screen relative overflow-hidden flex items-center bg-black">
         {/* Racing stripe */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
         {/* Background */}
         <div className="absolute inset-0 racing-stripes opacity-20" />
@@ -389,18 +389,18 @@ export default function AboutClient({ locale }: AboutClientProps) {
                 {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
-                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white'}`}
+                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
                   />
                 ))}
               </div>
-              <span className="font-racing text-racing-red text-sm tracking-[0.2em]">
+              <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
                 {locale === 'id' ? 'SERTIFIKASI' : 'CERTIFICATIONS'}
               </span>
               <div className="flex">
                 {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
-                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-red'}`}
+                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-green'}`}
                   />
                 ))}
               </div>
@@ -474,7 +474,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
         </div>
 
         {/* Bottom racing stripe */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
       </section>
     </div>
   );

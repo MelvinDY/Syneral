@@ -126,11 +126,11 @@ export default function ContactClient({ locale }: ContactClientProps) {
                 </label>
                 <input
                   {...register('name')}
-                  className="w-full px-4 py-3 bg-background-secondary border border-white/10 rounded-xl text-white placeholder-foreground-muted focus:outline-none focus:border-racing-red transition-colors"
+                  className="w-full px-4 py-3 bg-background-secondary border border-white/10 rounded-xl text-white placeholder-foreground-muted focus:outline-none focus:border-racing-green transition-colors"
                   placeholder={locale === 'id' ? 'Nama lengkap Anda' : 'Your full name'}
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-racing-red">{errors.name.message}</p>
+                  <p className="mt-1 text-sm text-racing-green">{errors.name.message}</p>
                 )}
               </div>
 
@@ -142,11 +142,11 @@ export default function ContactClient({ locale }: ContactClientProps) {
                 <input
                   {...register('email')}
                   type="email"
-                  className="w-full px-4 py-3 bg-background-secondary border border-white/10 rounded-xl text-white placeholder-foreground-muted focus:outline-none focus:border-racing-red transition-colors"
+                  className="w-full px-4 py-3 bg-background-secondary border border-white/10 rounded-xl text-white placeholder-foreground-muted focus:outline-none focus:border-racing-green transition-colors"
                   placeholder="email@example.com"
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-racing-red">{errors.email.message}</p>
+                  <p className="mt-1 text-sm text-racing-green">{errors.email.message}</p>
                 )}
               </div>
 
@@ -158,7 +158,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                 <input
                   {...register('phone')}
                   type="tel"
-                  className="w-full px-4 py-3 bg-background-secondary border border-white/10 rounded-xl text-white placeholder-foreground-muted focus:outline-none focus:border-racing-red transition-colors"
+                  className="w-full px-4 py-3 bg-background-secondary border border-white/10 rounded-xl text-white placeholder-foreground-muted focus:outline-none focus:border-racing-green transition-colors"
                   placeholder="+62 812 3456 7890"
                 />
               </div>
@@ -170,11 +170,11 @@ export default function ContactClient({ locale }: ContactClientProps) {
                 </label>
                 <input
                   {...register('subject')}
-                  className="w-full px-4 py-3 bg-background-secondary border border-white/10 rounded-xl text-white placeholder-foreground-muted focus:outline-none focus:border-racing-red transition-colors"
+                  className="w-full px-4 py-3 bg-background-secondary border border-white/10 rounded-xl text-white placeholder-foreground-muted focus:outline-none focus:border-racing-green transition-colors"
                   placeholder={locale === 'id' ? 'Subjek pesan' : 'Message subject'}
                 />
                 {errors.subject && (
-                  <p className="mt-1 text-sm text-racing-red">{errors.subject.message}</p>
+                  <p className="mt-1 text-sm text-racing-green">{errors.subject.message}</p>
                 )}
               </div>
 
@@ -186,11 +186,11 @@ export default function ContactClient({ locale }: ContactClientProps) {
                 <textarea
                   {...register('message')}
                   rows={5}
-                  className="w-full px-4 py-3 bg-background-secondary border border-white/10 rounded-xl text-white placeholder-foreground-muted focus:outline-none focus:border-racing-red transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-background-secondary border border-white/10 rounded-xl text-white placeholder-foreground-muted focus:outline-none focus:border-racing-green transition-colors resize-none"
                   placeholder={locale === 'id' ? 'Tulis pesan Anda di sini...' : 'Write your message here...'}
                 />
                 {errors.message && (
-                  <p className="mt-1 text-sm text-racing-red">{errors.message.message}</p>
+                  <p className="mt-1 text-sm text-racing-green">{errors.message.message}</p>
                 )}
               </div>
 
@@ -213,7 +213,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-racing-red text-center"
+                  className="text-racing-green text-center"
                 >
                   {t('form.error')}
                 </motion.p>
@@ -244,7 +244,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-start gap-4"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-racing-red/10 text-racing-red flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-racing-green/10 text-racing-green flex items-center justify-center flex-shrink-0">
                         {info.icon}
                       </div>
                       <div>
@@ -254,7 +254,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         {info.href ? (
                           <a
                             href={info.href}
-                            className="text-white hover:text-racing-red transition-colors"
+                            className="text-white hover:text-racing-green transition-colors"
                           >
                             {info.value}
                           </a>
@@ -280,7 +280,7 @@ export default function ContactClient({ locale }: ContactClientProps) {
                         href={`https://${social}.com/syneralindonesia`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-lg bg-white/5 hover:bg-racing-red/20 hover:text-racing-red transition-colors flex items-center justify-center text-foreground-muted"
+                        className="w-10 h-10 rounded-lg bg-white/5 hover:bg-racing-green/20 hover:text-racing-green transition-colors flex items-center justify-center text-foreground-muted"
                         aria-label={social}
                       >
                         <span className="text-xs uppercase">{social[0]}</span>

@@ -23,7 +23,7 @@ const demoPromotions = [
     },
     endDate: '2024-12-31',
     isActive: true,
-    color: '#e10600',
+    color: '#009640',
   },
   {
     id: '2',

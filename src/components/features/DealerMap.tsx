@@ -29,8 +29,8 @@ const createCustomIcon = (isSelected: boolean) => {
       <div style="
         width: 32px;
         height: 32px;
-        background: ${isSelected ? '#e10600' : '#0a0a0a'};
-        border: 3px solid ${isSelected ? '#fff' : '#e10600'};
+        background: ${isSelected ? '#009640' : '#0a0a0a'};
+        border: 3px solid ${isSelected ? '#fff' : '#009640'};
         border-radius: 50% 50% 50% 0;
         transform: rotate(-45deg);
         display: flex;
@@ -40,7 +40,7 @@ const createCustomIcon = (isSelected: boolean) => {
       ">
         <span style="
           transform: rotate(45deg);
-          color: ${isSelected ? '#fff' : '#e10600'};
+          color: ${isSelected ? '#fff' : '#009640'};
           font-weight: bold;
           font-size: 14px;
         ">S</span>
@@ -106,7 +106,7 @@ export default function DealerMap({ dealers, selectedDealer, onSelectDealer, loc
           border-radius: 8px;
           min-width: 200px;
         ">
-          <h3 style="font-weight: bold; margin-bottom: 8px; color: #e10600;">${dealer.name}</h3>
+          <h3 style="font-weight: bold; margin-bottom: 8px; color: #009640;">${dealer.name}</h3>
           <p style="font-size: 12px; color: #a0a0a0; margin-bottom: 4px;">${dealer.address}</p>
           <p style="font-size: 12px; color: #a0a0a0;">${dealer.operatingHours[locale]}</p>
         </div>

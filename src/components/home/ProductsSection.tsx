@@ -20,7 +20,7 @@ const demoProducts = [
     apiStandard: 'API SN',
     jasoStandard: 'JASO MA2',
     volume: '800ml',
-    color: '#e10600',
+    color: '#009640',
     number: '01',
   },
   {
@@ -93,11 +93,11 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
                 {[...Array(4)].map((_, i) => (
                   <div
                     key={i}
-                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white'}`}
+                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
                   />
                 ))}
               </div>
-              <span className="font-racing text-racing-red text-sm tracking-[0.2em]">
+              <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
                 {locale === 'id' ? 'PRODUK KAMI' : 'OUR PRODUCTS'}
               </span>
             </div>
@@ -190,7 +190,7 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
 
                   {/* Product info */}
                   <div className="mt-auto">
-                    <h3 className="font-racing text-lg text-white mb-1 tracking-wide group-hover:text-racing-red transition-colors">
+                    <h3 className="font-racing text-lg text-white mb-1 tracking-wide group-hover:text-racing-green transition-colors">
                       {product.name[locale]}
                     </h3>
                     <p className="font-racing-alt text-sm text-foreground-muted mb-4">
@@ -236,7 +236,7 @@ export default function ProductsSection({ locale }: ProductsSectionProps) {
       </div>
 
       {/* Bottom racing stripe */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
     </section>
   );
 }

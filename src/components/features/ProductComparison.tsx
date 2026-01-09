@@ -129,7 +129,7 @@ export default function ProductComparison({ products, locale, onClose }: Product
                         {product.features?.[locale]?.map((feature, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm text-white">
                             <svg
-                              className="w-4 h-4 text-racing-red flex-shrink-0 mt-0.5"
+                              className="w-4 h-4 text-racing-green flex-shrink-0 mt-0.5"
                               fill="currentColor"
                               viewBox="0 0 20 20"
                             >

@@ -30,7 +30,7 @@ const demoProducts = [
       id: ['Perlindungan maksimal mesin', 'Performa tinggi', 'Teknologi Ester', 'Anti keausan superior'],
       en: ['Maximum engine protection', 'High performance', 'Ester technology', 'Superior anti-wear']
     },
-    color: '#e10600',
+    color: '#009640',
     number: '01',
     tier: 'PREMIUM',
   },
@@ -51,7 +51,7 @@ const demoProducts = [
       id: ['Perlindungan harian', 'Ekonomis', 'Performa stabil', 'Anti oksidasi'],
       en: ['Daily protection', 'Economical', 'Stable performance', 'Anti-oxidation']
     },
-    color: '#e10600',
+    color: '#009640',
     number: '02',
     tier: 'STANDARD',
   },
@@ -158,8 +158,8 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(225,6,0,0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(225,6,0,0.3) 1px, transparent 1px)
+              linear-gradient(rgba(0,150,64,0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,150,64,0.3) 1px, transparent 1px)
             `,
             backgroundSize: '60px 60px',
           }}
@@ -171,7 +171,7 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
         </div>
 
         {/* Racing stripe */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 w-full">
           {/* Header */}
@@ -185,11 +185,11 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
                 {[...Array(6)].map((_, i) => (
                   <div
                     key={i}
-                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-red'}`}
+                    className={`w-3 h-3 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-green'}`}
                   />
                 ))}
               </div>
-              <span className="font-racing text-racing-red text-sm tracking-[0.2em]">
+              <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
                 {locale === 'id' ? 'KATALOG PRODUK' : 'PRODUCT CATALOG'}
               </span>
             </div>
@@ -214,7 +214,7 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
                 onClick={() => setActiveCategory(category)}
                 className={`px-6 py-3 flex items-center gap-2 border transition-all duration-300 ${
                   activeCategory === category
-                    ? 'bg-racing-red border-racing-red'
+                    ? 'bg-racing-green border-racing-green'
                     : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
                 }`}
               >
@@ -257,7 +257,7 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
               <span className="font-racing text-xs text-foreground-muted tracking-widest">
                 {locale === 'id' ? 'LIHAT PRODUK' : 'VIEW PRODUCTS'}
               </span>
-              <svg className="w-6 h-6 text-racing-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-racing-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </motion.div>
@@ -268,7 +268,7 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
       {/* Products Grid Section */}
       <section className="relative py-24 bg-background-secondary">
         {/* Racing stripe */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
         {/* Background pattern */}
         <div className="absolute inset-0 racing-stripes opacity-10" />
@@ -336,7 +336,7 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
                           onClick={() => toggleComparison(product.id)}
                           className={`absolute top-4 right-4 flex items-center gap-2 px-3 py-2 rounded transition-all ${
                             comparisonProducts.includes(product.id)
-                              ? 'bg-racing-red text-white'
+                              ? 'bg-racing-green text-white'
                               : 'bg-white/10 text-white/60 hover:bg-white/20 hover:text-white'
                           }`}
                         >
@@ -362,7 +362,7 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
                         </div>
 
                         {/* Product name */}
-                        <h3 className="font-racing text-xl lg:text-2xl text-white mb-3 tracking-wide group-hover:text-racing-red transition-colors">
+                        <h3 className="font-racing text-xl lg:text-2xl text-white mb-3 tracking-wide group-hover:text-racing-green transition-colors">
                           {product.name[locale]}
                         </h3>
 
@@ -417,7 +417,7 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
         </div>
 
         {/* Bottom racing stripe */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
       </section>
 
       {/* Comparison bar */}
@@ -427,13 +427,13 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 100 }}
-            className="fixed bottom-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-lg border-t border-racing-red/30"
+            className="fixed bottom-0 left-0 right-0 z-40 bg-black/95 backdrop-blur-lg border-t border-racing-green/30"
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-6">
                   {/* Count */}
-                  <div className="bg-racing-red px-4 py-2 rounded">
+                  <div className="bg-racing-green px-4 py-2 rounded">
                     <span className="font-racing text-white text-lg">{comparisonProducts.length}/3</span>
                   </div>
 
@@ -460,7 +460,7 @@ export default function ProductsClient({ locale }: ProductsClientProps) {
                   <button
                     onClick={() => setShowComparison(true)}
                     disabled={comparisonProducts.length < 2}
-                    className="px-6 py-2 bg-racing-red hover:bg-racing-red-dark rounded transition-colors font-racing text-sm text-white disabled:opacity-50"
+                    className="px-6 py-2 bg-racing-green hover:bg-racing-green-dark rounded transition-colors font-racing text-sm text-white disabled:opacity-50"
                   >
                     {t('comparison.title').toUpperCase()}
                   </button>

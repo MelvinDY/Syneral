@@ -17,7 +17,7 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
       </svg>
     ),
-    color: '#e10600',
+    color: '#009640',
   },
   {
     key: 'performance',
@@ -47,11 +47,11 @@ export default function FeaturesSection({ locale }: FeaturesSectionProps) {
   return (
     <section className="h-screen py-24 bg-black relative overflow-hidden flex flex-col justify-center">
       {/* Racing stripe top */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
       {/* Background elements */}
       <div className="absolute inset-0 racing-stripes opacity-30" />
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-racing-red/5 to-transparent" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-racing-green/5 to-transparent" />
 
       {/* Large background text */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2 racing-number text-[20vw] leading-none text-white/[0.02] pointer-events-none select-none">
@@ -71,11 +71,11 @@ export default function FeaturesSection({ locale }: FeaturesSectionProps) {
               {[...Array(4)].map((_, i) => (
                 <div
                   key={i}
-                  className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white'}`}
+                  className={`w-3 h-3 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
                 />
               ))}
             </div>
-            <span className="font-racing text-racing-red text-sm tracking-[0.2em]">
+            <span className="font-racing text-racing-green text-sm tracking-[0.2em]">
               {locale === 'id' ? 'KEUNGGULAN' : 'ADVANTAGES'}
             </span>
           </div>

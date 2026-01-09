@@ -55,11 +55,11 @@ export default function Footer() {
   return (
     <footer className="relative bg-black overflow-hidden">
       {/* Top racing stripe */}
-      <div className="h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+      <div className="h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
       {/* Background elements */}
       <div className="absolute inset-0 racing-stripes opacity-30" />
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-racing-red/5 to-transparent" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-racing-green/5 to-transparent" />
 
       {/* Large background number */}
       <div className="absolute -right-20 top-1/2 -translate-y-1/2 racing-number text-[30vw] leading-none text-white/[0.02] pointer-events-none select-none">
@@ -73,7 +73,7 @@ export default function Footer() {
             {/* Logo */}
             <div className="flex items-center gap-4 mb-6">
               <div className="relative">
-                <div className="w-16 h-16 bg-racing-red skew-x-[-8deg] flex items-center justify-center">
+                <div className="w-16 h-16 bg-racing-green skew-x-[-8deg] flex items-center justify-center">
                   <span className="font-racing text-white font-black text-3xl skew-x-[8deg]">S</span>
                 </div>
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-white skew-x-[-8deg]" />
@@ -87,7 +87,7 @@ export default function Footer() {
                     {[...Array(4)].map((_, i) => (
                       <div
                         key={i}
-                        className={`w-2 h-2 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white/30'}`}
+                        className={`w-2 h-2 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white/30'}`}
                       />
                     ))}
                   </div>
@@ -115,9 +115,9 @@ export default function Footer() {
                   aria-label={social.name}
                 >
                   {/* Skewed background */}
-                  <div className="absolute inset-0 bg-white/5 skew-x-[-8deg] group-hover:bg-racing-red transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-white/5 skew-x-[-8deg] group-hover:bg-racing-green transition-colors duration-300" />
                   {/* Racing number */}
-                  <span className="absolute -top-2 -left-1 font-racing text-[8px] text-racing-red/50 group-hover:text-white/50 transition-colors">
+                  <span className="absolute -top-2 -left-1 font-racing text-[8px] text-racing-green/50 group-hover:text-white/50 transition-colors">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   {/* Icon */}
@@ -136,7 +136,7 @@ export default function Footer() {
                 {[...Array(3)].map((_, i) => (
                   <div
                     key={i}
-                    className={`w-1.5 h-1.5 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white/30'}`}
+                    className={`w-1.5 h-1.5 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white/30'}`}
                   />
                 ))}
               </div>
@@ -153,18 +153,18 @@ export default function Footer() {
                     className="group flex items-center gap-3 py-1"
                   >
                     {/* Racing number */}
-                    <span className="font-racing text-[10px] text-foreground-muted group-hover:text-racing-red transition-colors">
+                    <span className="font-racing text-[10px] text-foreground-muted group-hover:text-racing-green transition-colors">
                       {link.num}
                     </span>
                     {/* Divider */}
-                    <div className="w-px h-4 bg-white/10 group-hover:bg-racing-red/50 transition-colors" />
+                    <div className="w-px h-4 bg-white/10 group-hover:bg-racing-green/50 transition-colors" />
                     {/* Label */}
                     <span className="font-racing-alt text-sm text-foreground-muted group-hover:text-white transition-colors tracking-wide">
                       {t(link.key)}
                     </span>
                     {/* Arrow on hover */}
                     <svg
-                      className="w-3 h-3 text-racing-red opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                      className="w-3 h-3 text-racing-green opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -184,7 +184,7 @@ export default function Footer() {
                 {[...Array(3)].map((_, i) => (
                   <div
                     key={i}
-                    className={`w-1.5 h-1.5 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white/30'}`}
+                    className={`w-1.5 h-1.5 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white/30'}`}
                   />
                 ))}
               </div>
@@ -197,15 +197,15 @@ export default function Footer() {
               <li>
                 <div className="group flex items-start gap-4 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
                   <div className="relative">
-                    <div className="w-10 h-10 bg-racing-red/20 skew-x-[-8deg] flex items-center justify-center">
-                      <svg className="w-5 h-5 text-racing-red skew-x-[8deg]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 bg-racing-green/20 skew-x-[-8deg] flex items-center justify-center">
+                      <svg className="w-5 h-5 text-racing-green skew-x-[8deg]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
                   </div>
                   <div>
-                    <span className="font-racing text-[10px] text-racing-red tracking-wider">LOCATION</span>
+                    <span className="font-racing text-[10px] text-racing-green tracking-wider">LOCATION</span>
                     <p className="font-racing-alt text-sm text-white mt-1">Jakarta, Indonesia</p>
                   </div>
                 </div>
@@ -216,15 +216,15 @@ export default function Footer() {
                   className="group flex items-start gap-4 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
                 >
                   <div className="relative">
-                    <div className="w-10 h-10 bg-racing-red/20 skew-x-[-8deg] flex items-center justify-center">
-                      <svg className="w-5 h-5 text-racing-red skew-x-[8deg]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-10 h-10 bg-racing-green/20 skew-x-[-8deg] flex items-center justify-center">
+                      <svg className="w-5 h-5 text-racing-green skew-x-[8deg]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
                   </div>
                   <div>
-                    <span className="font-racing text-[10px] text-racing-red tracking-wider">EMAIL</span>
-                    <p className="font-racing-alt text-sm text-white mt-1 group-hover:text-racing-red transition-colors">
+                    <span className="font-racing text-[10px] text-racing-green tracking-wider">EMAIL</span>
+                    <p className="font-racing-alt text-sm text-white mt-1 group-hover:text-racing-green transition-colors">
                       info@syneralindonesia.co.id
                     </p>
                   </div>
@@ -249,7 +249,7 @@ export default function Footer() {
                   <div
                     key={i}
                     className={`w-3 h-3 ${
-                      (Math.floor(i / 2) + i) % 2 === 0 ? 'bg-white/20' : 'bg-racing-red/40'
+                      (Math.floor(i / 2) + i) % 2 === 0 ? 'bg-white/20' : 'bg-racing-green/40'
                     }`}
                   />
                 ))}
@@ -260,7 +260,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom racing stripe */}
-      <div className="h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+      <div className="h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
     </footer>
   );
 }

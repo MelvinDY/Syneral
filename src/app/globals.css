@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  /* MotoGP-inspired color palette */
-  --racing-red: #e10600;
-  --racing-red-dark: #b80500;
+  /* Syneral-inspired color palette */
+  --racing-green: #009640;
+  --racing-green-dark: #007a35;
   --electric-blue: #00a3e0;
   --electric-blue-dark: #0082b3;
   --gold: #d4af37;
@@ -17,7 +17,7 @@
   --foreground-muted: #a0a0a0;
 
   /* Gradients */
-  --gradient-racing: linear-gradient(135deg, var(--racing-red) 0%, var(--racing-red-dark) 100%);
+  --gradient-racing: linear-gradient(135deg, var(--racing-green) 0%, var(--racing-green-dark) 100%);
   --gradient-electric: linear-gradient(135deg, var(--electric-blue) 0%, var(--electric-blue-dark) 100%);
   --gradient-dark: linear-gradient(180deg, var(--background) 0%, var(--background-secondary) 100%);
 }
@@ -28,8 +28,8 @@
   --color-background-tertiary: var(--background-tertiary);
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
-  --color-racing-red: var(--racing-red);
-  --color-racing-red-dark: var(--racing-red-dark);
+  --color-racing-green: var(--racing-green);
+  --color-racing-green-dark: var(--racing-green-dark);
   --color-electric-blue: var(--electric-blue);
   --color-electric-blue-dark: var(--electric-blue-dark);
   --color-gold: var(--gold);
@@ -72,8 +72,8 @@ body {
     90deg,
     transparent,
     transparent 40px,
-    rgba(225, 6, 0, 0.03) 40px,
-    rgba(225, 6, 0, 0.03) 42px
+    rgba(0, 150, 64, 0.03) 40px,
+    rgba(0, 150, 64, 0.03) 42px
   );
   transform: skewX(-20deg);
   animation: speedMove 20s linear infinite;
@@ -100,8 +100,8 @@ body {
 }
 
 /* Glow effects */
-.glow-red {
-  box-shadow: 0 0 20px rgba(225, 6, 0, 0.3), 0 0 40px rgba(225, 6, 0, 0.1);
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 150, 64, 0.3), 0 0 40px rgba(0, 150, 64, 0.1);
 }
 
 .glow-blue {
@@ -145,17 +145,17 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--racing-red);
+  background: var(--racing-green);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--racing-red-dark);
+  background: var(--racing-green-dark);
 }
 
 /* Selection color */
 ::selection {
-  background: var(--racing-red);
+  background: var(--racing-green);
   color: white;
 }
 
@@ -212,8 +212,8 @@ body {
     -45deg,
     transparent,
     transparent 10px,
-    rgba(225, 6, 0, 0.1) 10px,
-    rgba(225, 6, 0, 0.1) 20px
+    rgba(0, 150, 64, 0.1) 10px,
+    rgba(0, 150, 64, 0.1) 20px
   );
 }
 
@@ -223,7 +223,7 @@ body {
     90deg,
     #fff 0px,
     #fff 10px,
-    #e10600 10px,
-    #e10600 20px
+    #009640 10px,
+    #009640 20px
   ) 1;
 }

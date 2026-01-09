@@ -28,18 +28,18 @@ export default function LanguageSwitcher() {
 
       {/* Content */}
       <div className="relative flex items-center gap-2 font-racing text-xs tracking-wider">
-        <span className={`transition-colors ${locale === 'id' ? 'text-racing-red' : 'text-foreground-muted'}`}>
+        <span className={`transition-colors ${locale === 'id' ? 'text-racing-green' : 'text-foreground-muted'}`}>
           ID
         </span>
         <span className="text-white/30">|</span>
-        <span className={`transition-colors ${locale === 'en' ? 'text-racing-red' : 'text-foreground-muted'}`}>
+        <span className={`transition-colors ${locale === 'en' ? 'text-racing-green' : 'text-foreground-muted'}`}>
           EN
         </span>
       </div>
 
       {/* Active indicator dot */}
       <div
-        className={`absolute -bottom-1 w-1.5 h-1.5 bg-racing-red transition-all duration-300 ${
+        className={`absolute -bottom-1 w-1.5 h-1.5 bg-racing-green transition-all duration-300 ${
           locale === 'id' ? 'left-3' : 'left-[calc(100%-12px)]'
         }`}
       />

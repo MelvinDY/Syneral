@@ -15,7 +15,7 @@ export default function CTASection({ locale }: CTASectionProps) {
   return (
     <section className="h-screen py-32 relative overflow-hidden bg-black flex flex-col justify-center">
       {/* Racing stripe top */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
 
       {/* Background elements */}
       <div className="absolute inset-0">
@@ -23,8 +23,8 @@ export default function CTASection({ locale }: CTASectionProps) {
         <div className="absolute inset-0 racing-stripes opacity-40" />
 
         {/* Red gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-racing-red/20 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-tl from-racing-red/10 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-racing-green/20 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-tl from-racing-green/10 via-transparent to-transparent" />
 
         {/* Animated speed lines */}
         {[...Array(4)].map((_, i) => (
@@ -38,7 +38,7 @@ export default function CTASection({ locale }: CTASectionProps) {
               repeat: Infinity,
               repeatDelay: 2,
             }}
-            className="absolute h-[1px] bg-gradient-to-r from-transparent via-racing-red to-transparent"
+            className="absolute h-[1px] bg-gradient-to-r from-transparent via-racing-green to-transparent"
             style={{
               top: `${25 + i * 15}%`,
               width: '60%',
@@ -77,7 +77,7 @@ export default function CTASection({ locale }: CTASectionProps) {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className={`w-4 h-4 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-red'}`}
+                  className={`w-4 h-4 ${i % 2 === 0 ? 'bg-white' : 'bg-racing-green'}`}
                 />
               ))}
             </div>
@@ -88,12 +88,12 @@ export default function CTASection({ locale }: CTASectionProps) {
             {locale === 'id' ? (
               <>
                 <span className="block">SIAP UNTUK</span>
-                <span className="block text-racing-red">PERFORMA TERBAIK?</span>
+                <span className="block text-racing-green">PERFORMA TERBAIK?</span>
               </>
             ) : (
               <>
                 <span className="block">READY FOR</span>
-                <span className="block text-racing-red">PEAK PERFORMANCE?</span>
+                <span className="block text-racing-green">PEAK PERFORMANCE?</span>
               </>
             )}
           </h2>
@@ -134,7 +134,7 @@ export default function CTASection({ locale }: CTASectionProps) {
             ].map((stat, index) => (
               <div key={stat.label} className="relative group">
                 {/* Parallelogram background */}
-                <div className="absolute inset-0 bg-white/5 skew-x-[-8deg] group-hover:bg-racing-red/10 transition-colors" />
+                <div className="absolute inset-0 bg-white/5 skew-x-[-8deg] group-hover:bg-racing-green/10 transition-colors" />
                 <div className="relative py-4 text-center">
                   <div className="font-racing text-2xl md:text-3xl font-bold text-white mb-1">
                     {stat.value}
@@ -157,7 +157,7 @@ export default function CTASection({ locale }: CTASectionProps) {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 + i * 0.05 }}
-                  className={`w-4 h-4 ${i % 2 === 0 ? 'bg-racing-red' : 'bg-white'}`}
+                  className={`w-4 h-4 ${i % 2 === 0 ? 'bg-racing-green' : 'bg-white'}`}
                 />
               ))}
             </div>
@@ -166,7 +166,7 @@ export default function CTASection({ locale }: CTASectionProps) {
       </div>
 
       {/* Racing stripe bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-red via-gold to-racing-red" />
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-racing-green via-gold to-racing-green" />
     </section>
   );
 }

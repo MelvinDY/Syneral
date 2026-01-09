@@ -22,11 +22,11 @@ interface ButtonProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-gradient-to-r from-racing-red to-racing-red-dark text-white hover:from-racing-red-dark hover:to-racing-red glow-red',
+    'bg-gradient-to-r from-racing-green to-racing-green-dark text-white hover:from-racing-green-dark hover:to-racing-green glow-green',
   secondary:
     'bg-gradient-to-r from-electric-blue to-electric-blue-dark text-white hover:from-electric-blue-dark hover:to-electric-blue glow-blue',
   outline:
-    'border-2 border-racing-red text-racing-red hover:bg-racing-red hover:text-white',
+    'border-2 border-racing-green text-racing-green hover:bg-racing-green hover:text-white',
   ghost:
     'text-foreground-muted hover:text-white hover:bg-white/5',
 };

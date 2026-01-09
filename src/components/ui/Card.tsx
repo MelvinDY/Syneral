@@ -26,7 +26,7 @@ export function ProductCard({ product, locale }: ProductCardProps) {
     >
       <Link
         href={`/products/${product.slug.current}`}
-        className="group block bg-background-secondary rounded-2xl overflow-hidden border border-white/5 hover:border-racing-red/30 transition-all duration-300"
+        className="group block bg-background-secondary rounded-2xl overflow-hidden border border-white/5 hover:border-racing-green/30 transition-all duration-300"
       >
         {/* Image */}
         <div className="relative aspect-square bg-gradient-to-br from-background-tertiary to-background overflow-hidden">
@@ -40,7 +40,7 @@ export function ProductCard({ product, locale }: ProductCardProps) {
           )}
           {/* Category badge */}
           <div className="absolute top-4 left-4">
-            <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-racing-red/90 text-white rounded-full">
+            <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-racing-green/90 text-white rounded-full">
               {product.category}
             </span>
           </div>
@@ -48,14 +48,14 @@ export function ProductCard({ product, locale }: ProductCardProps) {
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
             <div className="flex justify-between text-sm">
               <span className="text-white/80">{product.viscosity}</span>
-              <span className="text-racing-red">{product.apiStandard}</span>
+              <span className="text-racing-green">{product.apiStandard}</span>
             </div>
           </div>
         </div>
 
         {/* Content */}
         <div className="p-6">
-          <h3 className="text-lg font-bold text-white mb-2 group-hover:text-racing-red transition-colors">
+          <h3 className="text-lg font-bold text-white mb-2 group-hover:text-racing-green transition-colors">
             {name}
           </h3>
           <p className="text-foreground-muted text-sm line-clamp-2">
