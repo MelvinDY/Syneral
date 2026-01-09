@@ -1,8 +1,18 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import type { Locale } from '@/lib/types';
+
+// Product images for slideshow
+const productSlides = [
+  { id: 1, image: '/images/products/product-1.png', name: 'Full Synthetic Plus Ester 4T' },
+  { id: 2, image: '/images/products/product-2.png', name: 'Synthetic 4T' },
+  { id: 3, image: '/images/products/product-3.png', name: 'Full Synthetic Plus Ester MATIC' },
+  { id: 4, image: '/images/products/product-4.png', name: 'Synthetic MATIC' },
+];
 
 interface AboutClientProps {
   locale: Locale;
@@ -108,6 +118,15 @@ const values = [
 
 export default function AboutClient({ locale }: AboutClientProps) {
   const t = useTranslations('about');
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-advance slideshow
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % productSlides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="bg-black">
@@ -187,7 +206,7 @@ export default function AboutClient({ locale }: AboutClientProps) {
               </div>
             </motion.div>
 
-            {/* Right - Visual */}
+            {/* Right - Product Slideshow */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -198,21 +217,61 @@ export default function AboutClient({ locale }: AboutClientProps) {
                 {/* Parallelogram frame */}
                 <div className="absolute inset-0 border-2 border-racing-green/30 skew-x-[-8deg]" />
 
-                {/* Oil bottle visual */}
-                <div className="relative p-12 flex items-center justify-center">
-                  <div className="relative">
-                    <div className="w-40 h-60 skew-x-[-8deg] bg-gradient-to-br from-racing-green/20 to-racing-green/5 border-2 border-racing-green/40 relative">
-                      {/* Cap */}
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-14 h-6 bg-racing-green" />
-                      {/* Label */}
-                      <div className="absolute inset-4 flex flex-col items-center justify-center skew-x-[8deg]">
-                        <span className="font-racing text-6xl font-black text-white">S</span>
-                        <span className="font-racing text-sm text-white/60 mt-2">SYNERAL</span>
-                        <span className="font-racing text-xs text-racing-green mt-1">PREMIUM OIL</span>
-                      </div>
-                    </div>
-                    {/* Glow */}
+                {/* Product slideshow */}
+                <div className="relative p-8 flex flex-col items-center justify-center min-h-[400px]">
+                  {/* Product image */}
+                  <div className="relative w-48 h-72 mb-6">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={currentSlide}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.5 }}
+                        className="absolute inset-0"
+                      >
+                        <Image
+                          src={productSlides[currentSlide].image}
+                          alt={productSlides[currentSlide].name}
+                          fill
+                          className="object-contain"
+                          sizes="192px"
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                    {/* Glow effect */}
                     <div className="absolute inset-0 blur-3xl bg-racing-green/20" />
+                  </div>
+
+                  {/* Product name */}
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentSlide}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.3 }}
+                      className="text-center"
+                    >
+                      <span className="font-racing text-sm text-racing-green tracking-wider">
+                        {productSlides[currentSlide].name}
+                      </span>
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Slide indicators */}
+                  <div className="flex gap-2 mt-6">
+                    {productSlides.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`w-2 h-2 skew-x-[-8deg] transition-all ${
+                          index === currentSlide
+                            ? 'bg-racing-green w-6'
+                            : 'bg-white/30 hover:bg-white/50'
+                        }`}
+                      />
+                    ))}
                   </div>
                 </div>
 

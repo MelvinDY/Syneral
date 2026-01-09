@@ -4,6 +4,7 @@
     "about": "About Us",
     "products": "Products",
     "dealers": "Find Dealer",
+    "news": "News",
     "promotions": "Promotions",
     "contact": "Contact",
     "learnMore": "Learn More",
@@ -111,6 +112,14 @@
     "expired": "Expired",
     "validUntil": "Valid until",
     "termsConditions": "Terms & Conditions"
+  },
+  "news": {
+    "label": "NEWS & PRESS",
+    "title": "News & Press",
+    "subtitle": "Stay updated with the latest from SyneRal Indonesia",
+    "readMore": "Read More",
+    "backToNews": "Back to News",
+    "share": "Share"
   },
   "contact": {
     "title": "Contact Us",

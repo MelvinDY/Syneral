@@ -132,6 +132,22 @@ const demoProducts = [
     jasoStandard: 'JASO MA2',
     volume: 800,
     image: '/images/products/product-1.png',
+    features: {
+      id: [
+        'Teknologi Full Synthetic + Ester',
+        'Perlindungan mesin maksimal',
+        'Akselerasi responsif & bertenaga',
+        'Cocok untuk motor sport & bebek',
+        'Interval ganti oli lebih panjang',
+      ],
+      en: [
+        'Full Synthetic + Ester Technology',
+        'Maximum engine protection',
+        'Responsive & powerful acceleration',
+        'Suitable for sport & underbone bikes',
+        'Extended oil change interval',
+      ],
+    },
   },
   {
     id: '2',
@@ -143,6 +159,22 @@ const demoProducts = [
     jasoStandard: 'JASO MA2',
     volume: 800,
     image: '/images/products/product-2.png',
+    features: {
+      id: [
+        'Formulasi sintetis berkualitas',
+        'Performa harian yang handal',
+        'Perlindungan kopling basah optimal',
+        'Harga ekonomis',
+        'Cocok untuk pemakaian sehari-hari',
+      ],
+      en: [
+        'Quality synthetic formulation',
+        'Reliable daily performance',
+        'Optimal wet clutch protection',
+        'Economical price',
+        'Suitable for daily use',
+      ],
+    },
   },
   {
     id: '3',
@@ -154,6 +186,22 @@ const demoProducts = [
     jasoStandard: 'JASO MB',
     volume: 800,
     image: '/images/products/product-3.png',
+    features: {
+      id: [
+        'Khusus untuk motor matic/CVT',
+        'Teknologi Full Synthetic + Ester',
+        'Efisiensi bahan bakar optimal',
+        'Perlindungan CVT maksimal',
+        'Tarikan halus & responsif',
+      ],
+      en: [
+        'Specially for automatic/CVT scooters',
+        'Full Synthetic + Ester Technology',
+        'Optimal fuel efficiency',
+        'Maximum CVT protection',
+        'Smooth & responsive acceleration',
+      ],
+    },
   },
   {
     id: '4',
@@ -165,6 +213,22 @@ const demoProducts = [
     jasoStandard: 'JASO MB',
     volume: 800,
     image: '/images/products/product-4.png',
+    features: {
+      id: [
+        'Untuk motor matic harian',
+        'Formulasi sintetis berkualitas',
+        'Hemat bahan bakar',
+        'Perlindungan mesin & CVT',
+        'Harga terjangkau',
+      ],
+      en: [
+        'For daily automatic scooters',
+        'Quality synthetic formulation',
+        'Fuel efficient',
+        'Engine & CVT protection',
+        'Affordable price',
+      ],
+    },
   },
   {
     id: '5',
@@ -176,6 +240,22 @@ const demoProducts = [
     jasoStandard: '-',
     volume: 500,
     image: '/images/products/product-5.png',
+    features: {
+      id: [
+        'Gemuk berbasis kalsium',
+        'Tahan air & kelembaban',
+        'Untuk bearing & chassis',
+        'Perlindungan anti karat',
+        'Aplikasi umum',
+      ],
+      en: [
+        'Calcium-based grease',
+        'Water & moisture resistant',
+        'For bearings & chassis',
+        'Anti-rust protection',
+        'General application',
+      ],
+    },
   },
   {
     id: '6',
@@ -187,6 +267,22 @@ const demoProducts = [
     jasoStandard: '-',
     volume: 500,
     image: '/images/products/product-6.png',
+    features: {
+      id: [
+        'Gemuk lithium extreme pressure',
+        'Tahan beban berat',
+        'Untuk aplikasi industri',
+        'Stabilitas suhu tinggi',
+        'Perlindungan anti-wear',
+      ],
+      en: [
+        'Lithium extreme pressure grease',
+        'Heavy load resistant',
+        'For industrial applications',
+        'High temperature stability',
+        'Anti-wear protection',
+      ],
+    },
   },
   {
     id: '7',
@@ -198,6 +294,22 @@ const demoProducts = [
     jasoStandard: '-',
     volume: 5000,
     image: '/images/products/product-7.png',
+    features: {
+      id: [
+        'Untuk mesin diesel berat',
+        'Standar API CI-4',
+        'Kontrol deposit & jelaga',
+        'Perlindungan mesin maksimal',
+        'Interval ganti oli panjang',
+      ],
+      en: [
+        'For heavy diesel engines',
+        'API CI-4 standard',
+        'Deposit & soot control',
+        'Maximum engine protection',
+        'Extended oil change interval',
+      ],
+    },
   },
   {
     id: '8',
@@ -209,6 +321,22 @@ const demoProducts = [
     jasoStandard: '-',
     volume: 20000,
     image: '/images/products/product-8.png',
+    features: {
+      id: [
+        'Oli hidrolik industri',
+        'Stabilitas oksidasi tinggi',
+        'Perlindungan anti-wear',
+        'Kontrol busa & emulsi',
+        'Untuk sistem hidrolik berat',
+      ],
+      en: [
+        'Industrial hydraulic oil',
+        'High oxidation stability',
+        'Anti-wear protection',
+        'Foam & emulsion control',
+        'For heavy hydraulic systems',
+      ],
+    },
   },
 ];
 

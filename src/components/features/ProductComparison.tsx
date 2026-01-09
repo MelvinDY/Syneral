@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import type { Locale } from '@/lib/types';
 
 interface Product {
@@ -12,6 +13,7 @@ interface Product {
   apiStandard: string;
   jasoStandard: string;
   volume: number;
+  image: string;
   features?: { id: string[]; en: string[] };
   color?: string;
 }
@@ -81,13 +83,17 @@ export default function ProductComparison({ products, locale, onClose }: Product
                   {products.map(product => (
                     <th key={product.id} className="p-4 text-center">
                       <div className="flex flex-col items-center gap-3">
-                        {/* Product icon */}
-                        <div
-                          className="w-16 h-24 rounded-lg flex items-center justify-center bg-gradient-to-b from-racing-green/20 to-racing-green/40 border-2 border-racing-green/60"
-                        >
-                          <span className="text-2xl font-bold text-white">S</span>
+                        {/* Product image */}
+                        <div className="relative w-20 h-28 bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg p-2">
+                          <Image
+                            src={product.image}
+                            alt={product.name[locale]}
+                            fill
+                            className="object-contain p-1"
+                            sizes="80px"
+                          />
                         </div>
-                        <span className="text-white font-semibold text-sm">
+                        <span className="text-white font-semibold text-sm max-w-[140px]">
                           {product.name[locale]}
                         </span>
                       </div>

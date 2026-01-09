@@ -11,7 +11,7 @@ const navItems = [
   { href: '/about', key: 'about' },
   { href: '/products', key: 'products' },
   { href: '/dealers', key: 'dealers' },
-  { href: '/promotions', key: 'promotions' },
+  { href: '/news', key: 'news' },
   { href: '/contact', key: 'contact' },
 ];
 
