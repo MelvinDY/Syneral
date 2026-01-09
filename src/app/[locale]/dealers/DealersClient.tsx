@@ -25,62 +25,67 @@ interface DealersClientProps {
   locale: Locale;
 }
 
-// Demo dealers - will be replaced with Sanity data
-const demoDealers = [
+// SyneRal authorized dealers
+const dealers = [
   {
     id: '1',
-    name: 'Syneral Jakarta Pusat',
-    address: 'Jl. Sudirman No. 123, Jakarta Pusat',
-    city: 'Jakarta Pusat',
-    province: 'DKI Jakarta',
-    coordinates: { lat: -6.2088, lng: 106.8456 },
-    phone: '+62 21 1234567',
-    whatsapp: '+62 812 3456 7890',
+    name: 'Sinar Motor by Deon - Bengkel TVS Motor',
+    address: 'Bogor, Jawa Barat',
+    city: 'Bogor',
+    province: 'Jawa Barat',
+    coordinates: { lat: -6.594707, lng: 106.7920399 },
+    mapsUrl: 'https://maps.app.goo.gl/LcFMY32eayNUPK1G6',
     operatingHours: { id: 'Senin - Sabtu: 08:00 - 17:00', en: 'Mon - Sat: 08:00 - 17:00' },
   },
   {
     id: '2',
-    name: 'Syneral Bandung',
-    address: 'Jl. Asia Afrika No. 45, Bandung',
-    city: 'Bandung',
+    name: 'Vincent Motor',
+    address: 'Bogor, Jawa Barat',
+    city: 'Bogor',
     province: 'Jawa Barat',
-    coordinates: { lat: -6.9175, lng: 107.6191 },
-    phone: '+62 22 7654321',
-    whatsapp: '+62 813 4567 8901',
-    operatingHours: { id: 'Senin - Sabtu: 09:00 - 18:00', en: 'Mon - Sat: 09:00 - 18:00' },
+    coordinates: { lat: -6.6278463, lng: 106.8098047 },
+    mapsUrl: 'https://maps.app.goo.gl/JRPML7oULG7rgqse8',
+    operatingHours: { id: 'Senin - Sabtu: 08:00 - 17:00', en: 'Mon - Sat: 08:00 - 17:00' },
   },
   {
     id: '3',
-    name: 'Syneral Surabaya',
-    address: 'Jl. Pemuda No. 78, Surabaya',
-    city: 'Surabaya',
-    province: 'Jawa Timur',
-    coordinates: { lat: -7.2575, lng: 112.7521 },
-    phone: '+62 31 8765432',
-    whatsapp: '+62 814 5678 9012',
-    operatingHours: { id: 'Senin - Minggu: 08:00 - 20:00', en: 'Mon - Sun: 08:00 - 20:00' },
+    name: 'Bike Point Sinar Variasi Motor',
+    address: 'Bogor, Jawa Barat',
+    city: 'Bogor',
+    province: 'Jawa Barat',
+    coordinates: { lat: -6.5469309, lng: 106.8244042 },
+    mapsUrl: 'https://maps.app.goo.gl/NPE6Kezvcpdmv7nt9',
+    operatingHours: { id: 'Senin - Sabtu: 08:00 - 17:00', en: 'Mon - Sat: 08:00 - 17:00' },
   },
   {
     id: '4',
-    name: 'Syneral Yogyakarta',
-    address: 'Jl. Malioboro No. 56, Yogyakarta',
-    city: 'Yogyakarta',
-    province: 'DI Yogyakarta',
-    coordinates: { lat: -7.7956, lng: 110.3695 },
-    phone: '+62 274 987654',
-    whatsapp: '+62 815 6789 0123',
-    operatingHours: { id: 'Senin - Sabtu: 08:30 - 17:30', en: 'Mon - Sat: 08:30 - 17:30' },
+    name: 'Jampang Indah Motor - Bengkel Motor',
+    address: 'Bogor, Jawa Barat',
+    city: 'Bogor',
+    province: 'Jawa Barat',
+    coordinates: { lat: -6.4792951, lng: 106.7311638 },
+    mapsUrl: 'https://maps.app.goo.gl/9u3zLs2PRnpTSbhL9',
+    operatingHours: { id: 'Senin - Sabtu: 08:00 - 17:00', en: 'Mon - Sat: 08:00 - 17:00' },
   },
   {
     id: '5',
-    name: 'Syneral Medan',
-    address: 'Jl. Gatot Subroto No. 89, Medan',
-    city: 'Medan',
-    province: 'Sumatera Utara',
-    coordinates: { lat: 3.5952, lng: 98.6722 },
-    phone: '+62 61 1122334',
-    whatsapp: '+62 816 7890 1234',
-    operatingHours: { id: 'Senin - Sabtu: 09:00 - 17:00', en: 'Mon - Sat: 09:00 - 17:00' },
+    name: 'Bongkot Motor',
+    address: 'Bogor, Jawa Barat',
+    city: 'Bogor',
+    province: 'Jawa Barat',
+    coordinates: { lat: -6.5864316, lng: 106.8525727 },
+    mapsUrl: 'https://maps.app.goo.gl/5ff5axK1pGyrpCCL9',
+    operatingHours: { id: 'Senin - Sabtu: 08:00 - 17:00', en: 'Mon - Sat: 08:00 - 17:00' },
+  },
+  {
+    id: '6',
+    name: 'Berkat Motor',
+    address: 'Bogor, Jawa Barat',
+    city: 'Bogor',
+    province: 'Jawa Barat',
+    coordinates: { lat: -6.5717565, lng: 106.7879896 },
+    mapsUrl: 'https://maps.app.goo.gl/rPNWyxUMBRWga6ED9',
+    operatingHours: { id: 'Senin - Sabtu: 08:00 - 17:00', en: 'Mon - Sat: 08:00 - 17:00' },
   },
 ];
 
@@ -90,9 +95,9 @@ export default function DealersClient({ locale }: DealersClientProps) {
   const [selectedDealer, setSelectedDealer] = useState<string | null>(null);
 
   const filteredDealers = useMemo(() => {
-    if (!searchQuery) return demoDealers;
+    if (!searchQuery) return dealers;
     const query = searchQuery.toLowerCase();
-    return demoDealers.filter(
+    return dealers.filter(
       dealer =>
         dealer.name.toLowerCase().includes(query) ||
         dealer.city.toLowerCase().includes(query) ||
@@ -168,15 +173,6 @@ export default function DealersClient({ locale }: DealersClientProps) {
                   <div className="space-y-2 text-sm">
                     <div className="flex items-center gap-2 text-foreground-muted">
                       <svg className="w-4 h-4 text-racing-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      <a href={`tel:${dealer.phone}`} className="hover:text-racing-green transition-colors">
-                        {dealer.phone}
-                      </a>
-                    </div>
-
-                    <div className="flex items-center gap-2 text-foreground-muted">
-                      <svg className="w-4 h-4 text-racing-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       <span>{dealer.operatingHours[locale]}</span>
@@ -184,22 +180,18 @@ export default function DealersClient({ locale }: DealersClientProps) {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-3 mt-4 pt-4 border-t border-white/5">
+                  <div className="mt-4 pt-4 border-t border-white/5">
                     <a
-                      href={`https://www.google.com/maps/dir/?api=1&destination=${dealer.coordinates.lat},${dealer.coordinates.lng}`}
+                      href={dealer.mapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 px-4 py-2 text-sm font-medium text-center text-white bg-racing-green rounded-lg hover:bg-racing-green-dark transition-colors"
+                      className="flex items-center justify-center gap-2 w-full px-4 py-2 text-sm font-medium text-white bg-racing-green rounded-lg hover:bg-racing-green-dark transition-colors"
                     >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
                       {t('directions')}
-                    </a>
-                    <a
-                      href={`https://wa.me/${dealer.whatsapp?.replace(/\D/g, '')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 px-4 py-2 text-sm font-medium text-center text-racing-green bg-racing-green/10 rounded-lg hover:bg-racing-green/20 transition-colors"
-                    >
-                      WhatsApp
                     </a>
                   </div>
                 </motion.div>
